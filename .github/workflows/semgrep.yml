@@ -11,6 +11,7 @@ on:
     branches:
       - main
       - master
+      - semgrep
     paths:
       - .github/workflows/semgrep.yml
   # Schedule the CI job (this method uses cron syntax):
