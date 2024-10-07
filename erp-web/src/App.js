@@ -1,4 +1,8 @@
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
+import Results from './Components/Results/Results';
+import ResultsV1 from "./Components/ResultsV1/ResultsV1";
+
 
 function App() {
     const [message, setMessage] = useState('');
@@ -18,6 +22,16 @@ function App() {
     return (
         <div className="App">
             <h1>{message}</h1>
+            <Router>
+                <Routes>
+                    <Route>
+                        <Route path="/Results" element={<Results />} />
+                        <Route path="/ResultsV1" element={<ResultsV1 />} />
+                    </Route>
+                </Routes>
+
+
+            </Router>
         </div>
     );
 }
