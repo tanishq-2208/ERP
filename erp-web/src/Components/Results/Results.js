@@ -12,8 +12,8 @@ function getMarksFromTable() {
 }
 
 
-const marksData = getMarksFromTable();
 
+const marksData = getMarksFromTable();
 
 
 if (marksData.length > 0) {
@@ -49,10 +49,6 @@ if (marksData.length > 0) {
         }
     });
 
-
-
-
-
     function updateChart() {
         marksChart.data.datasets[0].data = getMarksFromTable();
         marksChart.update();
@@ -62,9 +58,11 @@ if (marksData.length > 0) {
 else {
     console.error("error");
 }
+
 function Results() {
     useEffect(() => {
-        getMarksFromTable();  // This will run once when the component is mounted
+
+        const marksData = getMarksFromTable();  // This will run once when the component is mounted
     }, []);
 
 
@@ -206,7 +204,8 @@ function Results() {
 
                     <div class="w-full flex justify-center">
                         <div class="w-64 h-64">
-                            <canvas id="marksChart"></canvas>
+                            <canvas id="marksChart">sample
+                            </canvas>
                         </div>
                     </div>
                 </div>
@@ -217,12 +216,6 @@ function Results() {
 
 
         </div>
-
-
-
-
-
-
 
 
     );
