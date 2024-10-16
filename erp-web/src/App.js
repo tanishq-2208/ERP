@@ -1,24 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Attendance from './components/attendance';
 
 function App() {
-    const [message, setMessage] = useState('');
-
-    useEffect(() => {
-        fetch('http://localhost:8080/hello')
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text();
-            })
-            .then((data) => setMessage(data))
-            .catch((error) => console.error('Error fetching data:', error));
-    }, []);
-
     return (
-        <div className="App">
-            <h1>{message}</h1>
-        </div>
+            <Router>
+                <Routes>
+                    <Route path="/attendance" element={<Attendance />} />
+                </Routes>
+            </Router>
     );
 }
 
