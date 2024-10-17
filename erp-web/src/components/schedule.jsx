@@ -60,7 +60,7 @@ const Schedule = () => {
   return (
     <div className="absolute min-h-screen w-full" 
       style={{
-        backgroundImage: `url(${require('../images/bg.png')})`,  
+        backgroundImage: `url(${require('../image/bg.png')})`,  
         backgroundSize: 'cover',                     
         backgroundPosition: 'center',                 
         backgroundRepeat: 'no-repeat',               
