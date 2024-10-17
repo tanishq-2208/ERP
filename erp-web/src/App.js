@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
-import Results from './Components/Results';
+import Results from './Components/Results.js';
+import FeePayment from './Components/feepayment.jsx';
 
 
 
@@ -27,7 +28,7 @@ function App() {
 
             <Routes>
                 <Route path="/Results" element={<Results />} />
-
+                <Route path="/feepayment" element={<FeePayment/>} />
             </Routes>
         </Router>
 

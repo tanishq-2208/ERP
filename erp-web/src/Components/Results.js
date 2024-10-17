@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Chart from 'chart.js/auto';
-import Image from '../assets/profile.png'
+import Image from '../assets/profile1.png';
 
 
 
