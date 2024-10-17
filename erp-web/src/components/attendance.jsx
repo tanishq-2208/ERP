@@ -15,7 +15,7 @@ const initialAttendanceData = [
 const initialMonthlyData = [
     { month: "Jan", telugu: 95, hindi: 70, english: 95, math: 95, science: 95, social: 95 },
     { month: "Feb", telugu: 55, hindi: 55, english: 55, math: 55, science: 55, social: 55 },
-    { month: "Mar", telugu: 10, hindi: 10, english: 10, math: 10, science: 10, social: 10 },
+    { month: "Mar", telugu: 10, hindi: 10, english: 90, math: 10, science: 10, social: 10 },
 ];
 
 const Attendance = () => {
@@ -36,6 +36,7 @@ const Attendance = () => {
         <div className="min-h-screen"
             style={{
                 backgroundImage: `url(${require('../images/bg4.jpg')})`,
+                marginTop:"-20px",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
@@ -43,8 +44,8 @@ const Attendance = () => {
             }}
         >
             <NavBar />
-            <div className="flex justify-center mt-12 py-16">
-                <h2 className="text-3xl">Subject Details</h2>
+            <div className="flex justify-center mt-14 py-16">
+                <h2 className="font-serif font-italic text-4xl">Subject Details</h2>
             </div>
             <div className="flex">
                 <div className="w-60 h-screen py-5">
@@ -83,7 +84,7 @@ const Attendance = () => {
                     <div className="ml-48 mt-32 w-9/12 h-9/12">
                         <BarChart monthlyData={monthlyData} /> 
                     </div>
-                    <div className="flex justify-center w-9/12 ml-60 mt-32 px-20 py-8">
+                    <div className="flex justify-center w-10/12 ml-[180px] mt-32 px-[70px] py-8">
                         <table className="table-auto border-collapse border border-gray-300 shadow-lg">
                             <thead>
                                 <tr>
