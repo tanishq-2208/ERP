@@ -74,7 +74,7 @@ const Attendance = () => {
                                     {attendanceData.map((data, index) => (
                                         <tr key={index} className="odd:bg-white odd:dark:bg-purple-300 even:bg-gray-50 even:dark:bg-white border-b dark:border-gray-700">
                                             <th scope="row" className="px-8 py-4 font-medium text-black-900 whitespace-nowrap dark:text-black">{data.subject}</th>
-                                            <td className="px-8 py-4">{data.teacher}</td>
+                                            <td className="px-8 py-4 text-black-900 font-medium dark:text-black">{data.teacher}</td>
                                         </tr>
                                     ))}
                                 </tbody>
