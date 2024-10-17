@@ -57,7 +57,7 @@ function FeePayment() {
     >
       <NavBar />
       <div class="flex ">
-        <div class="w-60 h-screen py-10"style={{paddingTop:"5.5rem"}}>
+        <div class="w-60 h-screen py-10"style={{paddingTop:"11.5rem"}}>
           <nav class="flex flex-col py-6 space-y-4">
             <a href="#attendance"
               class="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Attendance</a>
@@ -80,11 +80,11 @@ function FeePayment() {
           </nav>
         </div>
         <div className="flex flex-col w-full items-center p-5" style={{ marginRight: "250px" }}>
-          <h1 className="text-4xl font-bold text-center" style={{ fontFamily: 'Roboto Serif, serif', padding: "1px", margin: "10px" }}>
-            Fee Payment
+          <h1 className="text-4xl font-bold text-center" style={{ fontFamily: 'Roboto Serif, serif', padding: "1px", margin: "80px" }}>
+            Fee Payment 
           </h1>
           <div className="flex justify-center items-center" style={{ padding: "30px" }}>
-            <img src={online} alt="Online Payments" style={{ marginLeft: "300px" }} />
+            <img src={online} alt="Online Payments" style={{ marginLeft: "250px" }} />
           </div>
           <div className="bg-purple-100 rounded-lg p-10 w-full max-w-[600px] shadow-md" style={{ marginTop: "-30px", marginLeft: "200px", }}>
             {/* Tuition Fee Section */}
