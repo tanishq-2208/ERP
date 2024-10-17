@@ -1,24 +1,16 @@
-import React, { useEffect, useState } from 'react';
-
+import React from 'react';
+// eslint-disable-next-line
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Schedule from './components/schedule';
 function App() {
-    const [message, setMessage] = useState('');
-
-    useEffect(() => {
-        fetch('http://localhost:8080/hello')
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text();
-            })
-            .then((data) => setMessage(data))
-            .catch((error) => console.error('Error fetching data:', error));
-    }, []);
-
     return (
-        <div className="App">
-            <h1>{message}</h1>
-        </div>
+        <Router>           
+            {/* Spacing for fixed navbar */}
+            {/* <div className="pt-20"></div> */}
+            <Routes>
+                <Route path="/" element={<Schedule />} />
+            </Routes>
+        </Router>
     );
 }
 
