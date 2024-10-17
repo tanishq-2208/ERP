@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
-import Results from './Components/Results/Results';
-import ResultsV1 from "./Components/ResultsV1/ResultsV1";
+import Results from './Components/Results';
+
 
 
 function App() {
@@ -19,20 +19,18 @@ function App() {
             .catch((error) => console.error('Error fetching data:', error));
     }, []);
 
+    const [name, setName] = useState("Default")
+
     return (
-        <div className="App">
-            <h1>{message}</h1>
-            <Router>
-                <Routes>
-                    <Route>
-                        <Route path="/Results" element={<Results />} />
-                        <Route path="/ResultsV1" element={<ResultsV1 />} />
-                    </Route>
-                </Routes>
+        <Router>
 
 
-            </Router>
-        </div>
+            <Routes>
+                <Route path="/Results" element={<Results />} />
+
+            </Routes>
+        </Router>
+
     );
 }
 
