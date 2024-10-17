@@ -156,6 +156,7 @@ function Results() {
                     <span class="font-serif text-[50px] font-medium leading-[58.55px] p-12  flex justify-center mt-9">Results</span>
                 </div>
 
+                
                 <div class="w-72 h-screen fixed ">
                     <nav class="flex flex-col py-6 space-y-4">
                         <a href="#attendance"
@@ -265,6 +266,7 @@ function Results() {
                                 </tbody>
                             </table>
                         </div>
+                        
 
 
                         <div class="w-full flex justify-center">
@@ -287,4 +289,4 @@ function Results() {
 }
 
 
-export default Results;
+export default Results;

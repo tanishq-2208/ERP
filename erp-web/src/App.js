@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
-import Results from './Components/Results.js';
-import FeePayment from './Components/feepayment.jsx';
+import Results from './components/Results.js';
+import FeePayment from './components/feepayment.jsx';
+import Attendance from './components/attendance';
 
 
 
@@ -29,6 +30,8 @@ function App() {
             <Routes>
                 <Route path="/Results" element={<Results />} />
                 <Route path="/feepayment" element={<FeePayment/>} />
+                <Route path="/attendance" element={<Attendance />} />
+
             </Routes>
         </Router>
 
