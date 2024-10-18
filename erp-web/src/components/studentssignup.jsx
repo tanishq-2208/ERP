@@ -43,7 +43,7 @@ const studentssignup = () => {
                     <input type="password" className="h-16 w-[693px] pl-4 font-serif bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]" placeholder="Password :" required />
                 </div>
                 <p class="font-Poppins text-lg font-normal ml-[429px] mt-[24px] mr-[135px] mb-[100px] text-fuchsia-950">If you are already Registered ? SignIn </p>
-                <button type="button" class=" h-[40px] w-[169px] text-[20px] shadow-[2px_2px_4px_3px_rgba(0,0,0,0.25)] focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium font-serif rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700">Register</button>
+                <button type="button" class=" h-[40px] w-[169px] shadow-[2px_2px_4px_3px_rgba(0,0,0,0.25)] focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium font-serif rounded-[15px] text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700">Register</button>
             </div>
         </div>
         
