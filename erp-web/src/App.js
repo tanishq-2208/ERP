@@ -1,25 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import TeachersSignup from './components/teacherssignup';
+import AdminsSignup from './components/adminssignup';
+import StudentsSignup from './components/studentssignup';
 
 function App() {
-    const [message, setMessage] = useState('');
-
-    useEffect(() => {
-        fetch('http://localhost:8080/hello')
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text();
-            })
-            .then((data) => setMessage(data))
-            .catch((error) => console.error('Error fetching data:', error));
-    }, []);
-
     return (
-        <div className="App">
-            <h1>{message}</h1>
-        </div>
+        <Router>           
+            <Routes>
+                <Route path="/teacher" element={<TeachersSignup/>} />
+                <Route path="/adminsignup" element={<AdminsSignup/>} />
+                <Route path="/student" element={<StudentsSignup/>} />
+            </Routes>
+        </Router>
     );
 }
 
-export default App;
+export default App;
+
