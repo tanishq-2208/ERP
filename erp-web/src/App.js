@@ -4,7 +4,9 @@ import Results from './components/Results.js';
 import FeePayment from './components/feepayment.jsx';
 import Attendance from './components/attendance';
 import Schedule from './components/schedule';
-
+import TeachersSignup from './components/teacherssignup';
+import AdminsSignup from './components/adminssignup';
+import StudentsSignup from './components/studentssignup';
 
 
 function App() {
@@ -33,7 +35,9 @@ function App() {
                 <Route path="/feepayment" element={<FeePayment/>} />
                 <Route path="/attendance" element={<Attendance />} />
                 <Route path="/schedule" element={<Schedule />} />
-
+                <Route path="/teacher" element={<TeachersSignup/>} />
+                <Route path="/adminsignup" element={<AdminsSignup/>} />
+                <Route path="/student" element={<StudentsSignup/>} />
             </Routes>
         </Router>
 
