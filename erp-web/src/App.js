@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Results from './components/Results.js';
 import FeePayment from './components/feepayment.jsx';
 import Attendance from './components/attendance';
+import Schedule from './components/schedule';
 
 
 
@@ -31,6 +32,7 @@ function App() {
                 <Route path="/Results" element={<Results />} />
                 <Route path="/feepayment" element={<FeePayment/>} />
                 <Route path="/attendance" element={<Attendance />} />
+                <Route path="/schedule" element={<Schedule />} />
 
             </Routes>
         </Router>
