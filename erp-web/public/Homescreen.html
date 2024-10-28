@@ -4,88 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomeScreen</title>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"  rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100">
-    
-    <!-- Navbar -->
-    <nav class="bg-purple-400 p-2 fixed top-0 left-0 right-0 z-50">
-        <div class="flex items-center justify-between">
-            <div class="flex space-x-20 items-center ml-60 ">
-                <a href="#" class="text-white font-semibold">Home</a>
-                <a href="#" class="text-white font-semibold">Contact</a>
-                <a href="#" class="text-white font-semibold">About</a>
-                <a href="#" class="text-white font-semibold">Help</a>
-            </div>
-            <!-- Profile -->
-            <div>
-                <span class="inline-block bg-purple-300 rounded-full mr-4">
-                    <img src="undraw.svg" alt="profile">
-                </span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Spacing for fixed navbar -->
-    <div class="pt-20"></div>
-
-    <!-- Student Info -->
-    <h1 class="font-serif text-2xl pt-4 text-left ml-10 font-medium">About School</h1>
-    <br>
-
-    <div class="flex font-serif text-left">
-        <P class="ml-20 mt-8">A school is both the educational institution and building designed to provide learning spaces and learning <br>environments for the teaching of students under the direction of teachers. Most countries have systems of formal education, which is sometimes compulsory.[2] In these systems, <br>students progress through a series of schools that can be built and operated by both government and private organization. The names for these schools vary by <br>country but generally include primary school for young children and secondary school for teenagers who have completed primary education. An institution where higher education is taught is commonly called a university college or university.
-        </P>
-        <div class="inline-block mr-20 w-700">
-            <img src="school.png" alt="">
-        </div>
-    </div>
-
-    <!-- Main Content (Centered Grid Below Navbar) -->
-    <div class="min-h-screen flex flex-col ml-60 mr-60 justify-start pt-16">
-        <div class="max-w-4xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 font-semibold">
-            <!-- Card 1 -->
-            <a href="#" class="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110">
-                <img src="Attendance logo.svg" alt="Attendance" class="w-12 h-12 mr-4">
-                <span class="font-saira text-lg">Attendance</span>
-            </a>
-            <!-- Card 2 -->
-            <a href="#" class="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg font-saira hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110">
-                <img src="Result logo.png" alt="Results" class="w-12 h-12 mr-4">
-                <span class="font-semibold text-lg">Results</span>
-            </a>
-            <!-- Card 3 -->
-            <a href="#" class="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg font-saira hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110">
-                <img src="Fee payment logo.png" alt="Fee Payment" class="w-12 h-12 mr-4">
-                <span class="font-semibold text-lg">Fee Payment</span>
-            </a>
-            <!-- Card 4 -->
-            <a href="#" class="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg font-saira hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110">
-                <img src="Timetable.png" alt="Time Table" class="w-12 h-12 mr-4">
-                <span class="font-semibold text-lg">Time Table</span>
-            </a>
-            <!-- Card 5 -->
-            <a href="#" class="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg font-saira hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110">
-                <img src="Hallticket.png" alt="Hall Ticket" class="w-12 h-12 mr-4">
-                <span class="font-semibold text-lg">Hall Ticket</span>
-            </a>
-            <!-- Card 6 -->
-            <a href="#" class="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg font-saira hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110">
-                <img src="Schedule.png" alt="Schedule" class="w-12 h-12 mr-4">
-                <span class="font-semibold text-lg">Schedule</span>
-            </a>
-            <!-- Card 7 -->
-            <a href="#" class="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg font-saira hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110">
-                <img src="Assignment.png" alt="Time Table" class="w-12 h-12 mr-4">
-                <span class="font-semibold text-lg">Assignments</span>
-            </a>
-            <!-- Card 8 -->
-            <a href="#" class="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg font-saira hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110">
-                <img src="Achievement.png" alt="Hall Ticket" class="w-12 h-12 mr-4">
-                <span class="font-semibold text-lg">Achievement</span>
-            </a>
-        </div>
-    </div>
-    
+<body>
+    <div id="vanta-canvas"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.waves.min.js"></script>
+<script>
+  VANTA.WAVES('#my-background')
+</script>
 </body>
 </html>

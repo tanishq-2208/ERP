@@ -1,12 +1,11 @@
 // src/components/NavBar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import Profile from '../assets/undraw.svg';
 
 function NavBar() {
     return (
-        <nav className="bg-purple-400 p-2 fixed top-0 left-0 right-0 z-50">
+        <nav className="bg-purple-400 p-2 fixed top-0 left-0 right-0 z-0">
                 <div className="flex items-center justify-between">
                     <div className="flex space-x-20 items-center ml-60">
                         <Link to="/" className="text-white font-semibold">Home</Link>
