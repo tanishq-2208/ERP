@@ -1,12 +1,14 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
-import Results from './components/Results.js';
-import FeePayment from './components/feepayment.jsx';
-import Attendance from './components/attendance';
-import Schedule from './components/schedule';
-import TeachersSignup from './components/teacherssignup';
-import AdminsSignup from './components/adminssignup';
-import StudentsSignup from './components/studentssignup';
+import Results from './Components/Results.js';
+import FeePayment from './Components/feepayment.jsx';
+
+import Schedule from './Components/schedule';
+import TeachersSignup from './Components/teacherssignup';
+import AdminsSignup from './Components/adminssignup';
+import StudentsSignup from './Components/studentssignup';
+import Timetable from "./Components/timetable.jsx";
+import Attendance from "./Components/attendance.jsx";
 
 
 function App() {
@@ -24,23 +26,24 @@ function App() {
             .catch((error) => console.error('Error fetching data:', error));
     }, []);
 
-    const [name, setName] = useState("Default")
+    const [name, setName] = useState("Default");
 
     return (
         <Router>
-
-
             <Routes>
-                <Route path="/Results" element={<Results />} />
-                <Route path="/feepayment" element={<FeePayment/>} />
-                <Route path="/attendance" element={<Attendance />} />
+            
+                <Route path="/timetable" element={<Timetable />} />
+
+        
+                 <Route path="/Results" element={<Results />} />
+                <Route path="/feepayment" element={<FeePayment />} />
+                <Route path="/attendance" element={<Attendance/>} />
                 <Route path="/schedule" element={<Schedule />} />
-                <Route path="/teacher" element={<TeachersSignup/>} />
-                <Route path="/adminsignup" element={<AdminsSignup/>} />
-                <Route path="/student" element={<StudentsSignup/>} />
+                <Route path="/teacher" element={<TeachersSignup />} />
+                <Route path="/adminsignup" element={<AdminsSignup />} />
+                <Route path="/student" element={<StudentsSignup />} /> 
             </Routes>
         </Router>
-
     );
 }
 
