@@ -7,9 +7,9 @@ import Schedule from './Components/schedule';
 import TeachersSignup from './Components/teacherssignup';
 import AdminsSignup from './Components/adminssignup';
 import StudentsSignup from './Components/studentssignup';
+import Timetable from "./Components/timetable.jsx";
 import Adminsresult from './Components/Adminsresult';
 import Teachersdomain from './Components/teachersdomain.jsx';
-
 function App() {
     const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(true);
@@ -39,23 +39,24 @@ function App() {
         return () => { isMounted = false }; // cleanup function
     }, []);
 
+    const [name, setName] = useState("Default")
+
     return (
         <Router>
-            <div>
-                {loading ? <p>Loading...</p> : <p>{message}</p>}
 
-                <Routes>
-                    <Route path="/Results" element={<Results />} />
-                    <Route path="/feepayment" element={<FeePayment />} />
-                    <Route path="/attendance" element={<Attendance />} />
-                    <Route path="/schedule" element={<Schedule />} />
-                    <Route path="/teacher" element={<TeachersSignup />} />
-                    <Route path="/adminsignup" element={<AdminsSignup />} />
-                    <Route path="/student" element={<StudentsSignup />} />
-                    <Route path="/Teachersdomain" element={<Teachersdomain />} />
-                    <Route path="/Adminsresult" element={<Adminsresult />} />
-                </Routes>
-            </div>
+
+            <Routes>
+                <Route path="/Results" element={<Results />} />
+                <Route path="/feepayment" element={<FeePayment/>} />
+                <Route path="/attendance" element={<Attendance />} />
+                <Route path="/schedule" element={<Schedule />} />
+                <Route path="/teacher" element={<TeachersSignup/>} />
+                <Route path="/adminsignup" element={<AdminsSignup/>} />
+                <Route path="/student" element={<StudentsSignup/>} />
+                <Route path="/Teachersdomain" element={<Teachersdomain />} />
+                <Route path="/Adminsresult" element={<Adminsresult />} />
+                <Route path="/timetable" element={<Timetable />} />
+            </Routes>
         </Router>
     );
 }
