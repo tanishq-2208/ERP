@@ -64,7 +64,7 @@ const HomeScreen = () => {
             </div>
 
             {/* Main Content (Centered Grid Below Navbar) */}
-            <div className="min-h-screen flex flex-col ml-60 mr-60 justify-start pt-16">
+            <div className="min-h-screen flex flex-col ml-60 mr-60 justify-start pt-20 ">
                 <div className="max-w-4xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 font-semibold">
                     <a href="#" className="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110">
                         <img src={attendanceLogo} alt="Attendance" className="w-12 h-12 mr-4" />

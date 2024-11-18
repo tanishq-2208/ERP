@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <nav class="bg-purple-400 p-2 fixed top-0 left-0 right-0 z-50">
+        <div class="flex items-center justify-between">
+            <div class="flex space-x-20 items-center ml-60 ">
+                <a href="#" class="text-white font-semibold">Home</a>
+                <a href="#" class="text-white font-semibold">Contact</a>
+                <a href="#" class="text-white font-semibold">About</a>
+                <a href="#" class="text-white font-semibold">Help</a>
+            </div>
+            <div>
+                <span class="inline-block bg-purple-300 rounded-full mr-4">
+                    <img src="undraw.svg" alt="profile">
+                </span>
+            </div>
+        </div>
+    </nav>
+    <div class="flex justify-center mt-16 py-8">
+        <h2 class="text-2xl">Subject Details</h2>
+    </div>
+    <div class="flex ">
+        <div class="w-60 h-screen py-5">
+            <nav class="flex flex-col py-6 space-y-4">
+                <a href="#attendance" class="px-4 py-2 w-72 bg-[#5B28A2C9] rounded-r-full text-white">Attendance</a>
+                <a href="#results"
+                    class="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-2">Results</a>
+                <a href="#timetable"
+                    class="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-2">Time
+                    Table</a>
+                <a href="#hallticket"
+                    class="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-2">Hall
+                    Ticket</a>
+                <a href="#schedule"
+                    class="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-2">Schedule</a>
+                <a href="#feepayment"
+                    class="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-2">Fee
+                    Payment</a>
+                <a href="#assignments"
+                    class="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-2">Assignments</a>
+                <a href="#achievements"
+                    class="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-2">Achievements</a>
+            </nav>
+        </div>
+        <div>
+            <div class="w-9/12 ml-60 py-8 px-20 ">
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <table class="w-full text-sm text-left rtl:text-right text-white dark:text-black border-b dark:border-gray-700">
+                        <thead class="text-xs text-back uppercase bg-white dark:bg-white dark:text-black border-b dark:border-gray-700">
+                            <tr>
+                                <th scope="col" class="px-6 py-4">
+                                    SUBJECTES
+                                </th>
+                                <th scope="col" class="px-6 py-4">
+                                    TEACHER
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                                class="odd:bg-white odd:dark:bg-purple-300 even:bg-gray-50 even:dark:bg-white border-b dark:border-gray-700">
+                                <th scope="row"
+                                    class="px-8 py-4 font-medium text-black-900 whitespace-nowrap dark:text-black">
+                                    Telugu
+                                </th>
+                                <td class="px-8 py-4">
+                                    teacher
+                                </td>
+                            </tr>
+                            <tr
+                                class="odd:bg-white odd:dark:bg-purple-300 even:bg-gray-50 even:dark:bg-white border-b dark:border-gray-700">
+                                <th scope="row"
+                                    class="px-8 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">
+                                    Hindi
+                                </th>
+                                <td class="px-8 py-4">
+                                    teacher
+                                </td>
+                            </tr>
+                            <tr
+                                class="odd:bg-white odd:dark:bg-purple-300 even:bg-gray-50 even:dark:bg-white border-b dark:border-gray-700">
+                                <th scope="row"
+                                    class="px-8 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">
+                                    English
+                                </th>
+                                <td class="px-8 py-4">
+                                    teacher
+                                </td>
+                            </tr>
+                            <tr
+                                class="odd:bg-white odd:dark:bg-purple-300 even:bg-gray-50 even:dark:bg-white border-b dark:border-gray-700">
+                                <th scope="row"
+                                    class="px-8 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">
+                                    Math
+                                </th>
+                                <td class="px-8 py-4">
+                                    teacher
+                                </td>
+                            </tr>
+                            <tr
+                                class="odd:bg-white odd:dark:bg-purple-300 even:bg-gray-50 even:dark:bg-white border-b dark:border-gray-700">
+                                <th scope="row"
+                                    class="px-8 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">
+                                    Science
+                                </th>
+                                <td class="px-8 py-4">
+                                    teacher
+                                </td>
+                            </tr>
+                            <tr
+                                class="odd:bg-white odd:dark:bg-purple-300 even:bg-gray-50 even:dark:bg-white border-b dark:border-gray-700">
+                                <th scope="row"
+                                    class="px-8 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">
+                                    Social
+                                </th>
+                                <td class="px-8 py-4">
+                                    teacher
+                                </td>
+                            </tr>
+                            <tr
+                                class="odd:bg-white odd:dark:bg-purple-300 even:bg-gray-50 even:dark:bg-white border-b dark:border-gray-700">
+                                <th scope="row"
+                                    class="px-8 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">
+                                    P.T
+                                </th>
+                                <td class="px-8 py-4">
+                                    teacher
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div>
+                <h1>GRAPH</h1>
+            </div>
+            <div class="flex justify-center w-9/12 ml-60 mt-16 px-20 py-8">
+                <table class="table-auto border-collapse border border-gray-300 shadow-lg">
+                        <tr>
+                            <th class="px-6 py-4 border border-gray-300 bg-purple-100">Months</th>
+                            <th class="px-6 py-4 border border-gray-300 bg-purple-100">Telugu</th>
+                            <th class="px-6 py-4 border border-gray-300 bg-purple-100">Hindi</th>
+                            <th class="px-6 py-4 border border-gray-300 bg-purple-100">English</th>
+                            <th class="px-6 py-4 border border-gray-300 bg-purple-100">Maths</th>
+                            <th class="px-6 py-4 border border-gray-300 bg-purple-100">Science</th>
+                            <th class="px-6 py-4 border border-gray-300 bg-purple-100">Social</th>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 border border-gray-300 bg-purple-100">Jan</td>
+                            <td class="px-6 py-4 border border-gray-300 bg-purple-100">95</td>
+                            <td class="px-6 py-4 border border-gray-300 bg-purple-100">95</td>
+                            <td class="px-6 py-4 border border-gray-300 bg-purple-100">95</td>
+                            <td class="px-6 py-4 border border-gray-300 bg-purple-100">95</td>
+                            <td class="px-6 py-4 border border-gray-300 bg-purple-100">95</td>
+                            <td class="px-6 py-4 border border-gray-300 bg-purple-100">95</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 border border-gray-300 bg-purple-100">Feb</td>
+                            <td class="px-6 py-4 border border-gray-300 bg-purple-100">55</td>
+                            <td class="px-6 py-4 border border-gray-300 bg-purple-100">55</td>
+                            <td class="px-6 py-4 border border-gray-300 bg-purple-100">55</td>
+                            <td class="px-6 py-4 border border-gray-300 bg-purple-100">55</td>
+                            <td class="px-6 py-4 border border-gray-300 bg-purple-100">55</td>
+                            <td class="px-6 py-4 border border-gray-300 bg-purple-100">55</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 border border-gray-300 bg-purple-100">Mar</td>
+                            <td class="px-6 py-4 border border-gray-300 bg-purple-100">10</td>
+                            <td class="px-6 py-4 border border-gray-300 bg-purple-100">10</td>
+                            <td class="px-6 py-4 border border-gray-300 bg-purple-100">10</td>
+                            <td class="px-6 py-4 border border-gray-300 bg-purple-100">10</td>
+                            <td class="px-6 py-4 border border-gray-300 bg-purple-100">10</td>
+                            <td class="px-6 py-4 border border-gray-300 bg-purple-100">10</td>
+                        </tr>
+                </table>
+            </div>
+        </div>
+        <button class="border-gray-700 "> click</button>
+    </div>
+</body>
+
+</html>

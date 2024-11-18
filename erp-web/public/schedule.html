@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Schedules</title>
+</head>
+
+<body>
+    <div>
+        <nav class="bg-purple-400 p-2 fixed top-0 left-0 right-0 z-50">
+            <div class="flex items-center justify-between">
+                <div class="flex space-x-20 items-center ml-60 ">
+                    <a href="#" class="text-white font-semibold">Home</a>
+                    <a href="#" class="text-white font-semibold">Contact</a>
+                    <a href="#" class="text-white font-semibold">About</a>
+                    <a href="#" class="text-white font-semibold">Help</a>
+                </div>
+                <div>
+                    <span class="inline-block bg-purple-300 rounded-full mr-4">
+                        <img src="undraw.svg" alt="profile">
+                    </span>
+                </div>
+            </div>
+        </nav>
+        <div class="flex justify-center mt-16 py-8">
+            <h2 class="text-2xl">Schedule</h2>
+        </div>
+        <div class="flex ">
+            <div class="w-60 h-screen py-5">
+                <nav class="flex flex-col py-6 space-y-4">
+                    <a href="#attendance"
+                        class="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-2">Attendance</a>
+                    <a href="#results"
+                        class="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-2">Results</a>
+                    <a href="#timetable"
+                        class="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-2">Time
+                        Table</a>
+                    <a href="#hallticket"
+                        class="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-2">Hall
+                        Ticket</a>
+                    <a href="#schedule" class="px-4 py-2 w-72 bg-[#5B28A2C9] rounded-r-full text-white">Schedule</a>
+                    <a href="#feepayment"
+                        class="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-2">Fee
+                        Payment</a>
+                    <a href="#assignments"
+                        class="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-2">Assignments</a>
+                    <a href="#achievements"
+                        class="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-2">Achievements</a>
+                </nav>
+            </div>
+            <div class=" flex flex-col items-center ml-7 w-full">
+                <div class="m-8">
+                    <select class="px-6 py-2 bg-purple-200 text-purple-900 rounded-md shadow-md">
+                        <option>SA-1</option>
+                        <option>FA-1</option>
+                        <option>FA-2</option>
+                    </select>
+                </div>
+                <div class="w-9/12">
+                    <div class="bg-gray-100 flex items-center justify-center">
+                        <div class="bg-white rounded-lg shadow-md w-full max-w-4xl">
+                            <div class="bg-purple-200 p-4 text-center rounded-t-lg">
+                                <h2 class="text-xl font-semibold text-gray-600">Schedule</h2>
+                            </div>
+
+                            <table class="min-w-full table-auto border-collapse">
+                                <thead class="bg-gray-100 text-gray-600 text-sm uppercase">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left border-r border-gray-300">Exams</th>
+                                        <th class="px-6 py-3 text-left border-r border-gray-300">Start Date</th>
+                                        <th class="px-6 py-3 text-left">End Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-gray-700 text-sm">
+
+                                    <tr class="border-t">
+                                        <td class="px-6 py-3 border-r border-gray-300">FA-1 Examinations</td>
+                                        <td class="px-6 py-3 border-r border-gray-300">23/09/2024</td>
+                                        <td class="px-6 py-3">25/09/2024</td>
+                                    </tr>
+
+                                    <tr class="border-t bg-gray-50">
+                                        <td class="px-6 py-3 border-r border-gray-300">Holidays if any</td>
+                                        <td class="px-6 py-3 border-r border-gray-300">26/09/2024</td>
+                                        <td class="px-6 py-3">27/11/2024</td>
+                                    </tr>
+
+                                    <tr class="border-t">
+                                        <td class="px-6 py-3 border-r border-gray-300">FA-2 Examinations</td>
+                                        <td class="px-6 py-3 border-r border-gray-300">28/11/2024</td>
+                                        <td class="px-6 py-3">30/11/2024</td>
+                                    </tr>
+
+                                    <tr class="border-t bg-gray-50">
+                                        <td class="px-6 py-3 border-r border-gray-300">Preparation Holidays</td>
+                                        <td class="px-6 py-3 border-r border-gray-300">02/12/2024</td>
+                                        <td class="px-6 py-3">07/12/2024</td>
+                                    </tr>
+
+                                    <tr class="border-t">
+                                        <td class="px-6 py-3 border-r border-gray-300">SA-1 Examinations</td>
+                                        <td class="px-6 py-3 border-r border-gray-300">09/12/2024</td>
+                                        <td class="px-6 py-3">21/12/2024</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-8">
+                    <select class="px-6 py-2 bg-purple-200 text-purple-900 rounded-md shadow-md">
+                        <option>SA-2</option>
+                        <option>FA-3</option>
+                        <option>FA-4</option>
+                    </select>
+                </div>
+                <div class="w-9/12">
+                    <div class="bg-gray-100 flex items-center justify-center">
+                        <div class="bg-white rounded-lg shadow-md w-full max-w-4xl">
+                            <div class="bg-purple-200 p-4 text-center rounded-t-lg">
+                                <h2 class="text-xl font-semibold text-gray-600">Schedule</h2>
+                            </div>
+
+                            <table class="min-w-full table-auto border-collapse">
+                                <thead class="bg-gray-100 text-gray-600 text-sm uppercase">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left border-r border-gray-300">Exams</th>
+                                        <th class="px-6 py-3 text-left border-r border-gray-300">Start Date</th>
+                                        <th class="px-6 py-3 text-left">End Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-gray-700 text-sm">
+
+                                    <tr class="border-t">
+                                        <td class="px-6 py-3 border-r border-gray-300">FA-3 Examinations</td>
+                                        <td class="px-6 py-3 border-r border-gray-300">23/09/2024</td>
+                                        <td class="px-6 py-3">25/09/2024</td>
+                                    </tr>
+
+                                    <tr class="border-t bg-gray-50">
+                                        <td class="px-6 py-3 border-r border-gray-300">Dasara Recess</td>
+                                        <td class="px-6 py-3 border-r border-gray-300">26/09/2024</td>
+                                        <td class="px-6 py-3">27/09/2024</td>
+                                    </tr>
+
+                                    <tr class="border-t">
+                                        <td class="px-6 py-3 border-r border-gray-300">FA-4 Examinations</td>
+                                        <td class="px-6 py-3 border-r border-gray-300">28/11/2024</td>
+                                        <td class="px-6 py-3">30/11/2024</td>
+                                    </tr>
+
+                                    <tr class="border-t bg-gray-50">
+                                        <td class="px-6 py-3 border-r border-gray-300">Preparation Holidays</td>
+                                        <td class="px-6 py-3 border-r border-gray-300">02/12/2024</td>
+                                        <td class="px-6 py-3">07/12/2024</td>
+                                    </tr>
+
+                                    <tr class="border-t">
+                                        <td class="px-6 py-3 border-r border-gray-300">SA-2 Examinations</td>
+                                        <td class="px-6 py-3 border-r border-gray-300">09/12/2024</td>
+                                        <td class="px-6 py-3">21/12/2024</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
