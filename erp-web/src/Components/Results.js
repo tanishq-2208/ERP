@@ -157,30 +157,21 @@ function Results() {
                 </div>
 
                 
-                <div class="w-72 h-screen fixed ">
-                    <nav class="flex flex-col py-6 space-y-4">
-                        <a href="#attendance"
-                            class="px-4 py-2 text-2xl bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-100 hover:translate-x-2">Attendance</a>
-                        <a href="#results"
-                            class="w-80 px-5 py-2 text-2xl bg-[#7B52B4] rounded-r-full text-white">Results</a>
-                        <a href="#timetable"
-                            class="px-4 py-2 text-2xl bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-100 hover:translate-x-2">Time
-                            Table</a>
-                        <a href="#hallticket"
-                            class="px-4 py-2 text-2xl bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-100 hover:translate-x-2">Hall
-                            Ticket</a>
-                        <a href="#schedule"
-                            class="px-4 py-2 text-2xl bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-100 hover:translate-x-2">Schedule</a>
-                        <a href="#feepayment"
-                            class="px-4 py-2 text-2xl bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-100 hover:translate-x-2">Fee
-                            Payment</a>
-                        <a href="#assignments"
-                            class="px-4 py-2 text-2xl bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-100 hover:translate-x-2">Assignments</a>
-                        <a href="#achievements"
-                            class="px-4 py-2 text-2xl bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-100 hover:translate-x-2">Achievements</a>
-                    </nav>
+                {/* Sidebar */}
+                <div className="flex pt-16"> 
+                    <div className="w-60 h-screen py-11 fixed top-0 left-0 z-10"> 
+                        <nav className="flex flex-col space-y-4 mt-16"> 
+                            <a href="#attendance" className="px-4 py-2 w-72 bg-[#5B28A2C9] rounded-r-full text-white">Attendance</a>
+                            <a href="#results" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Results</a>
+                            <a href="#timetable" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Time Table</a>
+                            <a href="#hallticket" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Hall Ticket</a>
+                            <a href="#schedule" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Schedule</a>
+                            <a href="#feepayment" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Fee Payment</a>
+                            <a href="#assignments" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Assignments</a>
+                            <a href="#achievements" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Achievements</a>
+                        </nav>
+                    </div>
                 </div>
-
 
 
                 <div class="part3 bg">
@@ -200,17 +191,13 @@ function Results() {
                             class="bg-[#E1CCEC] hover:bg-[#7B52B4] text-#000000-500 text-sm pl-24 pr-24 pt-4 pb-4 justify-centre hover:text-white" onClick={() => onClickResultType('SA2')}>SA2</a>
 
                     </div>
-
-
                 </div>
 
-                <div class="flex flex-col items-center justify-center p-16 min-h-793px  ">
-
+                <div class="flex flex-col items-center justify-center p-16 min-h-793px ml-28 ">
                     <div class="bg-white rounded-lg shadow-lg max-w-2xl p-16  w-fit">
                         <div class="flex justify-center ">
                             <p class="font-poppins text-[40px] font-medium leading-[75px] text-left">{resultType}</p>
                         </div>
-
                         <div class=" items-center mt-16 mb-10">
                             <table id="marksTable" class="w-full bg-purple-300 border-collapse border  border-black rounded-lg">
                                 <thead>
@@ -266,21 +253,14 @@ function Results() {
                                 </tbody>
                             </table>
                         </div>
-                        
-
-
+                    
                         <div class="w-full flex justify-center">
                             <div class="w-64 h-64">
                                 <canvas id="marksChart"></canvas>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
-
-
-
             </div>
 
         </div>

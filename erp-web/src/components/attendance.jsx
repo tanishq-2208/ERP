@@ -35,7 +35,7 @@ const Attendance = () => {
     return (
         <div className="min-h-screen"
             style={{
-                backgroundImage: `url(${require('../images/bg4.jpg')})`,
+                backgroundImage: `url(${require('../image/bg4.jpg')})`,
                 marginTop:"-20px",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
@@ -44,44 +44,55 @@ const Attendance = () => {
             }}
         >
             <NavBar />
-            <div className="flex justify-center mt-14 py-16">
+            <div className="flex justify-center mt-14 pt-16 pb-6">
                 <h2 className="font-serif font-italic text-4xl">Subject Details</h2>
             </div>
-            <div className="flex">
-                <div className="w-60 h-screen py-5">
-                    <nav className="flex flex-col py-6 space-y-4">
-                        <a href="#attendance" className="px-4 py-2 w-72 bg-[#5B28A2C9] rounded-r-full text-white">Attendance</a>
-                        <a href="#results" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Results</a>
-                        <a href="#timetable" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Time Table</a>
-                        <a href="#hallticket" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Hall Ticket</a>
-                        <a href="#schedule" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Schedule</a>
-                        <a href="#feepayment" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Fee Payment</a>
-                        <a href="#assignments" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Assignments</a>
-                        <a href="#achievements" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Achievements</a>
-                    </nav>
-                </div>
-                <div>
-                    <div className="w-9/12 ml-60 py-8 px-20">
-                        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-                            <table className="w-full text-sm text-left rtl:text-right text-white dark:text-black border-b dark:border-gray-700">
-                                <thead className="text-xs text-black uppercase bg-white dark:bg-white dark:text-black border-b dark:border-gray-700">
-                                    <tr>
-                                        <th scope="col" className="px-6 py-4">SUBJECTS</th>
-                                        <th scope="col" className="px-6 py-4">TEACHER</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {attendanceData.map((data, index) => (
-                                        <tr key={index} className="odd:bg-white odd:dark:bg-purple-300 even:bg-gray-50 even:dark:bg-white border-b dark:border-gray-700">
-                                            <th scope="row" className="px-8 py-4 font-medium text-black-900 whitespace-nowrap dark:text-black">{data.subject}</th>
-                                            <td className="px-8 py-4 text-black-900 font-medium dark:text-black">{data.teacher}</td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
+            {/* Sidebar */}
+                <div className="flex pt-16">
+                    <div className="w-60 h-screen py-11 fixed top-0 left-0 z-10"> 
+                        <nav className="flex flex-col space-y-4 mt-16"> 
+                            <a href="#attendance" className="px-4 py-2 w-72 bg-[#5B28A2C9] rounded-r-full text-white">Attendance</a>
+                            <a href="#results" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Results</a>
+                            <a href="#timetable" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Time Table</a>
+                            <a href="#hallticket" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Hall Ticket</a>
+                            <a href="#schedule" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Schedule</a>
+                            <a href="#feepayment" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Fee Payment</a>
+                            <a href="#assignments" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Assignments</a>
+                            <a href="#achievements" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Achievements</a>
+                        </nav>
                     </div>
-                    <div className="ml-48 mt-32 w-9/12 h-9/12">
+                </div>
+
+                {/* Table */}
+    <div className="w-9/12 ml-60 py-4 px-20 relative z-0">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table className="w-full text-sm text-left rtl:text-right text-white dark:text-black border-b dark:border-gray-700">
+                <thead className="text-xs text-black uppercase bg-white dark:bg-white dark:text-black border-b dark:border-gray-700">
+                    <tr>
+                        <th scope="col" className="px-6 py-4">SUBJECTS</th>
+                        <th scope="col" className="px-6 py-4">TEACHER</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {attendanceData.map((data, index) => (
+                        <tr key={index} className="odd:bg-white odd:dark:bg-purple-300 even:bg-gray-50 even:dark:bg-white border-b dark:border-gray-700">
+                            <th scope="row" className="px-8 py-4 font-medium text-black-900 whitespace-nowrap dark:text-black">
+                                {data.subject}
+                            </th>
+                            <td className="px-8 py-4 text-black-900 font-medium dark:text-black">
+                                {data.teacher}
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+                {/* Bargraph */}
+                    <div className="ml-48 mt-32 w-9/12 h-9/12 pl-32">
                         <BarChart monthlyData={monthlyData} /> 
                     </div>
                     <div className="flex justify-center w-10/12 ml-[180px] mt-32 px-[70px] py-8">
@@ -113,8 +124,8 @@ const Attendance = () => {
                         </table>
                     </div>
                 </div>
-            </div>
-        </div>
+            
+        
     );
 };
 

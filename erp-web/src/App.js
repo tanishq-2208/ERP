@@ -1,15 +1,16 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
-import Results from './Components/Results.js';
-import FeePayment from './Components/feepayment.jsx';
-import Attendance from './Components/attendance';
-import Schedule from './Components/schedule';
-import TeachersSignup from './Components/teacherssignup';
-import AdminsSignup from './Components/adminssignup';
-import StudentsSignup from './Components/studentssignup';
-import Timetable from "./Components/timetable.jsx";
-import Adminsresult from './Components/Adminsresult';
-import Teachersdomain from './Components/teachersdomain.jsx';
+import Results from './components/Results.js';
+import FeePayment from './components/feepayment.jsx';
+import Attendance from './components/attendance';
+import Schedule from './components/schedule';
+import TeachersSignup from './components/teacherssignup';
+import AdminsSignup from './components/adminssignup';
+import StudentsSignup from './components/studentssignup';
+import Timetable from "./components/timetable.jsx";
+import Adminsresult from './components/Adminsresult';
+import Teachersdomain from './components/teachersdomain.jsx';
+
 function App() {
     const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(true);
@@ -52,7 +53,7 @@ function App() {
                 <Route path="/schedule" element={<Schedule />} />
                 <Route path="/teacher" element={<TeachersSignup/>} />
                 <Route path="/adminsignup" element={<AdminsSignup/>} />
-                <Route path="/student" element={<StudentsSignup/>} />
+                <Route path="/student" element={<StudentsSignup />} />
                 <Route path="/Teachersdomain" element={<Teachersdomain />} />
                 <Route path="/Adminsresult" element={<Adminsresult />} />
                 <Route path="/timetable" element={<Timetable />} />
