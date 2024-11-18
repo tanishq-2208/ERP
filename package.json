@@ -8,9 +8,6 @@
   "author": "",
   "license": "ISC",
   "description": "",
-
-
-
   "dependencies": {
     "react-router-dom": "^6.26.2",
     "react-scripts": "^5.0.1"

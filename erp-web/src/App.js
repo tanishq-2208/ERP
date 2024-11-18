@@ -1,18 +1,21 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
-import Results from './components/Results.js';
-import FeePayment from './components/feepayment.jsx';
-import Attendance from './components/attendance';
-import Schedule from './components/schedule';
-import TeachersSignup from './components/teacherssignup';
-import AdminsSignup from './components/adminssignup';
-import StudentsSignup from './components/studentssignup';
-
+import Results from './Components/Results.js';
+import FeePayment from './Components/feepayment.jsx';
+import Attendance from './Components/attendance';
+import Schedule from './Components/schedule';
+import TeachersSignup from './Components/teacherssignup';
+import AdminsSignup from './Components/adminssignup';
+import StudentsSignup from './Components/studentssignup';
+import Adminsresult from './Components/Adminsresult';
+import Teachersdomain from './Components/teachersdomain.jsx';
 
 function App() {
     const [message, setMessage] = useState('');
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        let isMounted = true;
         fetch('http://localhost:8080/hello')
             .then((response) => {
                 if (!response.ok) {
@@ -20,27 +23,40 @@ function App() {
                 }
                 return response.text();
             })
-            .then((data) => setMessage(data))
-            .catch((error) => console.error('Error fetching data:', error));
-    }, []);
+            .then((data) => {
+                if (isMounted) {
+                    setMessage(data);
+                    setLoading(false);
+                }
+            })
+            .catch((error) => {
+                if (isMounted) {
+                    console.error("Error fetching message:", error);
+                    setLoading(false);
+                }
+            });
 
-    const [name, setName] = useState("Default")
+        return () => { isMounted = false }; // cleanup function
+    }, []);
 
     return (
         <Router>
+            <div>
+                {loading ? <p>Loading...</p> : <p>{message}</p>}
 
-
-            <Routes>
-                <Route path="/Results" element={<Results />} />
-                <Route path="/feepayment" element={<FeePayment/>} />
-                <Route path="/attendance" element={<Attendance />} />
-                <Route path="/schedule" element={<Schedule />} />
-                <Route path="/teacher" element={<TeachersSignup/>} />
-                <Route path="/adminsignup" element={<AdminsSignup/>} />
-                <Route path="/student" element={<StudentsSignup/>} />
-            </Routes>
+                <Routes>
+                    <Route path="/Results" element={<Results />} />
+                    <Route path="/feepayment" element={<FeePayment />} />
+                    <Route path="/attendance" element={<Attendance />} />
+                    <Route path="/schedule" element={<Schedule />} />
+                    <Route path="/teacher" element={<TeachersSignup />} />
+                    <Route path="/adminsignup" element={<AdminsSignup />} />
+                    <Route path="/student" element={<StudentsSignup />} />
+                    <Route path="/Teachersdomain" element={<Teachersdomain />} />
+                    <Route path="/Adminsresult" element={<Adminsresult />} />
+                </Routes>
+            </div>
         </Router>
-
     );
 }
 
