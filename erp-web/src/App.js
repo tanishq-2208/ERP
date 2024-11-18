@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 import Results from './components/Results.js';
 import FeePayment from './components/feepayment.jsx';
@@ -7,15 +7,16 @@ import Schedule from './components/schedule';
 import TeachersSignup from './components/teacherssignup';
 import AdminsSignup from './components/adminssignup';
 import StudentsSignup from './components/studentssignup';
-import HomeScreen from './components/HomeScreen';
-import AboutScreen from './components/AboutScreen'; // Importing AboutScreen component
-import Contact from './components/Contact'; // Importing Contact component
-import Help from './components/Help';
+import Timetable from "./components/timetable.jsx";
+import Adminsresult from './components/Adminsresult';
+import Teachersdomain from './components/teachersdomain.jsx';
 
 function App() {
     const [message, setMessage] = useState('');
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        let isMounted = true;
         fetch('http://localhost:8080/hello')
             .then((response) => {
                 if (!response.ok) {
@@ -23,8 +24,20 @@ function App() {
                 }
                 return response.text();
             })
-            .then((data) => setMessage(data))
-            .catch((error) => console.error('Error fetching data:', error));
+            .then((data) => {
+                if (isMounted) {
+                    setMessage(data);
+                    setLoading(false);
+                }
+            })
+            .catch((error) => {
+                if (isMounted) {
+                    console.error("Error fetching message:", error);
+                    setLoading(false);
+                }
+            });
+
+        return () => { isMounted = false }; // cleanup function
     }, []);
 
     const [name, setName] = useState("Default")
@@ -40,14 +53,12 @@ function App() {
                 <Route path="/schedule" element={<Schedule />} />
                 <Route path="/teacher" element={<TeachersSignup/>} />
                 <Route path="/adminsignup" element={<AdminsSignup/>} />
-                <Route path="/student" element={<StudentsSignup/>} />
-                <Route path="/homescreen" element={<HomeScreen/>} />
-                <Route path="/about" element={<AboutScreen />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path ="/Help" element={<Help/>}></Route>
+                <Route path="/student" element={<StudentsSignup />} />
+                <Route path="/Teachersdomain" element={<Teachersdomain />} />
+                <Route path="/Adminsresult" element={<Adminsresult />} />
+                <Route path="/timetable" element={<Timetable />} />
             </Routes>
         </Router>
-
     );
 }
 

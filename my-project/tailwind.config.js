@@ -4,11 +4,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {fontFamily: {
-      serif: ['Roboto Serif', 'serif'],
-
-    },
-  },
+    extend: {
+        screens: {
+            'xs': '480px',
+        }
+    }
+},
   plugins: [],
-}
 }
