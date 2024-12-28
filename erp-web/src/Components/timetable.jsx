@@ -4,7 +4,7 @@ import timetableData from '../data/timetable.json'; // Import JSON data
 
 const Timetable = () => {
   const backgroundStyle = {
-    backgroundImage: `url(${require('../assets/timetable.png')})`,
+    backgroundImage: `url(${require('../assets/timetablebg.png')})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
