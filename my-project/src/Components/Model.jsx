@@ -1,12 +1,7 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 
 export const Model = ({ role }) => {
   const inputBackgroundColor = 'rgba(225, 204, 236, 0.8)';
-  const navigate = useNavigate();
-    const goToPage = (page) => {
-        navigate(`/${page}`);
-    };
 
   return (
     <div className="p-2 rounded-lg shadow-lg" style={{ backgroundColor: 'rgba(225, 204, 236, 0.5)', width: '825px' }}>
@@ -35,14 +30,14 @@ export const Model = ({ role }) => {
         <div className="mb-1.5 mt-0.5 text-gray-600">
           <p>
             New user?{' '}
-            <button type="button" className="text-blue-500 underline hover:text-blue-400" onClick={() => goToPage("{`${role}`}")}>
+            <button type="button" className="text-blue-500 underline hover:text-blue-400">
               Sign Up
             </button>
           </p>
         </div>
         <button
           type="submit"
-          className="bg-purple-500 text-white text-base rounded-md py-0.5 px-3 mb-1 font-semibold hover:bg-purple-600 focus:outline-none focus:bg-purple-600 shadow-md" onClick={() => goToPage("Homepage")}
+          className="bg-purple-500 text-white text-base rounded-md py-0.5 px-3 mb-1 font-semibold hover:bg-purple-600 focus:outline-none focus:bg-purple-600 shadow-md"
         >
           Sign In
         </button>

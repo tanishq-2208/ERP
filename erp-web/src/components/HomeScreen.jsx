@@ -10,7 +10,7 @@ import Assignment from '../assets/Assignment.png';
 import Achievement from '../assets/Achievement.png';
 import homeScreenImage from '../Images/HomeScreen.png';
 import NavBar from './Nav';
-import { useNavigate } from 'react-router-dom';
+
 
 const HomeScreen = () => {
     const [message, setMessage] = useState('');
@@ -26,10 +26,6 @@ const HomeScreen = () => {
             .then((data) => setMessage(data))
             .catch((error) => console.error('Error fetching data:', error));
     }, []);
-    const navigate = useNavigate();
-    const goToPage = (page) => {
-        navigate(`/${page}`);
-    };
 
     return (
         <div
@@ -70,40 +66,40 @@ const HomeScreen = () => {
             {/* Main Content (Centered Grid Below Navbar) */}
             <div className="min-h-screen flex flex-col ml-60 mr-60 justify-start pt-20 ">
                 <div className="max-w-4xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 font-semibold">
-                    <a href="#" className="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110" onClick={() => goToPage("attendance")}>
+                    <a href="#" className="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110">
                         <img src={attendanceLogo} alt="Attendance" className="w-12 h-12 mr-4" />
                         <span className="font-saira text-lg">Attendance</span>
                     </a>
-                    <a href="#" className="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg font-saira hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110" onClick={() => goToPage("Results")}>
+                    <a href="#" className="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg font-saira hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110">
                         <img src={resultLogo} alt="Results" className="w-12 h-12 mr-4" />
                         <span className="font-semibold text-lg">Results</span>
                     </a>
-                    <a href="#" className="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg font-saira hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110" onClick={() => goToPage("feepayment")}>
+                    <a href="#" className="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg font-saira hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110">
                         <img src={FeePaymentLogo} alt="Fee Payment" className="w-12 h-12 mr-4" />
                         <span className="font-semibold text-lg">Fee Payment</span>
                     </a>
 
-                    <a href="#" class="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg font-saira hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110" onClick={() => goToPage("timetable")}>
+                    <a href="#" class="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg font-saira hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110">
                         <img src={Timetable} alt="Time Table" class="w-12 h-12 mr-4" />
                         <span class="font-semibold text-lg">Time Table</span>
                     </a>
 
-                    <a href="#" class="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg font-saira hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110 " onClick={() => goToPage("")}>
+                    <a href="#" class="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg font-saira hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110">
                         <img src={Hallticket} alt="Hall Ticket" class="w-12 h-12 mr-4" />
                         <span class="font-semibold text-lg">Hall Ticket</span>
                     </a>
 
-                    <a href="#" class="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg font-saira hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110" onClick={() => goToPage("schedule")}>
+                    <a href="#" class="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg font-saira hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110">
                         <img src={Schedule} alt="Schedule" class="w-12 h-12 mr-4" />
                         <span class="font-semibold text-lg">Schedule</span>
                     </a>
 
-                    <a href="#" class="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg font-saira hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110" onClick={() => goToPage("")}>
+                    <a href="#" class="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg font-saira hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110">
                         <img src={Assignment} alt="Time Table" class="w-12 h-12 mr-4" />
                         <span class="font-semibold text-lg">Assignments</span>
                     </a>
                     {/*Card 8*/}
-                    <a href="#" class="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg font-saira hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110" onClick={() => goToPage("")}>
+                    <a href="#" class="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg font-saira hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110">
                         <img src={Achievement} alt="Hall Ticket" class="w-12 h-12 mr-4" />
                         <span class="font-semibold text-lg">Achievement</span>
                     </a>

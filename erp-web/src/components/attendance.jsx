@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import NavBar from './Nav';
 import BarChart from './graph';
-import { useNavigate } from 'react-router-dom';
 
 const initialAttendanceData = [
     { subject: "Telugu", teacher: "Teacher 1" },
@@ -19,7 +18,6 @@ const initialMonthlyData = [
     { month: "Mar", telugu: 10, hindi: 10, english: 90, math: 10, science: 10, social: 10 },
 ];
 
-
 const Attendance = () => {
     const [attendanceData, setAttendanceData] = useState(initialAttendanceData);
     const [monthlyData, setMonthlyData] = useState(initialMonthlyData);
@@ -33,11 +31,6 @@ const Attendance = () => {
         }));
         setMonthlyData(newMonthlyData);
     };
-    const navigate = useNavigate();
-    const goToPage = (page) => {
-        navigate(`/${page}`);
-      };
-
 
     return (
         <div className="min-h-screen"
@@ -58,14 +51,14 @@ const Attendance = () => {
                 <div className="flex pt-16">
                     <div className="w-60 h-screen py-11 fixed top-0 left-0 z-10"> 
                         <nav className="flex flex-col space-y-4 mt-16"> 
-                        <a href="#attendance" className="px-4 py-2 w-72 bg-[#5B28A2C9] rounded-r-full text-white" onClick={() => goToPage("attendance")} >Attendance</a>
-                            <a href="#results" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6" onClick={() => goToPage("Results")}>Results</a>
-                            <a href="#timetable" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6" onClick={() => goToPage("timetable")}>Time Table</a>
-                            <a href="#hallticket" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6" onClick={() => goToPage("")}>Hall Ticket</a>
-                            <a href="#schedule" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6" onClick={() => goToPage("schedule")}>Schedule</a>
-                            <a href="#feepayment" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6" onClick={() => goToPage("feepayment")}>Fee Payment</a>
-                            <a href="#assignments" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6" onClick={() => goToPage("")}>Assignments</a>
-                            <a href="#achievements" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6" onClick={() => goToPage("")}>Achievements</a>
+                            <a href="#attendance" className="px-4 py-2 w-72 bg-[#5B28A2C9] rounded-r-full text-white">Attendance</a>
+                            <a href="#results" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Results</a>
+                            <a href="#timetable" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Time Table</a>
+                            <a href="#hallticket" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Hall Ticket</a>
+                            <a href="#schedule" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Schedule</a>
+                            <a href="#feepayment" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Fee Payment</a>
+                            <a href="#assignments" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Assignments</a>
+                            <a href="#achievements" className="px-4 py-2 bg-[#BE9FE1] rounded-r-full text-white hover:bg-[#7B52B4] transform motion-safe hover:scale-110 hover:translate-x-6">Achievements</a>
                         </nav>
                     </div>
                 </div>
