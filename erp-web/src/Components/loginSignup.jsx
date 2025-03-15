@@ -6,6 +6,7 @@ import ParentImg from '../assets/parentImg.png';
 import AdminImg from '../assets/adminImg.png';
 import Background from '../assets/background.png';
 import { Model } from './Model'; // Import the LoginForm component
+import { useNavigate } from 'react-router-dom';
 
 export const LoginSignup = () => {
   const Card = ({ imageSrc, altText, index, role }) => {
@@ -37,6 +38,10 @@ export const LoginSignup = () => {
         </div>
       </div>
     );
+  };
+  const navigate = useNavigate();
+  const goToPage = (page) => {
+      navigate(`/${page}`);
   };
 
   return (
