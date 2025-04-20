@@ -1,6 +1,6 @@
 package com.repatikosam.ERP.Repository;
 
-import com.repatikosam.ERP.auth.entity.StudentDetails;
+import com.repatikosam.ERP.model.StudentDetails;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,9 +1,9 @@
 package com.repatikosam.ERP.Controller;
 
-import com.repatikosam.ERP.auth.entity.AdminSignupDTO;
-import com.repatikosam.ERP.auth.entity.TeacherSignupDTO;
-import com.repatikosam.ERP.auth.entity.StudentSignupDTO;
 import com.repatikosam.ERP.Service.SignupService;
+import com.repatikosam.ERP.dto.AdminSignupDTO;
+import com.repatikosam.ERP.dto.StudentSignupDTO;
+import com.repatikosam.ERP.dto.TeacherSignupDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

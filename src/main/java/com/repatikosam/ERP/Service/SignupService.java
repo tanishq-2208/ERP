@@ -1,14 +1,22 @@
 package com.repatikosam.ERP.Service;
 
-import com.repatikosam.ERP.auth.entity.*;
 import com.repatikosam.ERP.auth.Role;
 import com.repatikosam.ERP.Repository.UserRepository;
 import com.repatikosam.ERP.Repository.AdminDetailsRepository;
 import com.repatikosam.ERP.Repository.TeacherDetailsRepository;
 import com.repatikosam.ERP.Repository.StudentDetailsRepository;
+import com.repatikosam.ERP.dto.AdminSignupDTO;
+import com.repatikosam.ERP.dto.StudentSignupDTO;
+import com.repatikosam.ERP.dto.TeacherSignupDTO;
+import com.repatikosam.ERP.model.AdminDetails;
+import com.repatikosam.ERP.model.StudentDetails;
+import com.repatikosam.ERP.model.TeacherDetails;
+import com.repatikosam.ERP.model.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class SignupService {
@@ -28,31 +36,31 @@ public class SignupService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    // In your registerAdmin method, add logging to help diagnose the issue
     public boolean registerAdmin(AdminSignupDTO dto) {
         try {
-            System.out.println("Registering admin with userId: " + dto.getUserId());
+            System.out.println("Registering admin with userId: " + dto.getUser_id());
             
             // Check if user already exists
-            if (userRepository.findByUserId(dto.getUserId()).isPresent()) {
-                System.out.println("User already exists with userId: " + dto.getUserId());
+            Optional<UserEntity> existingUserOpt = userRepository.findByUserId(dto.getUser_id());
+            if (existingUserOpt.isPresent()) {
+                System.out.println("User already exists with userId: " + dto.getUser_id());
                 return false;
             }
     
             // Create and save user entity
             UserEntity user = new UserEntity();
-            user.setUserId(dto.getUserId());
+            user.setUser_id(dto.getUser_id());
             user.setPassword(passwordEncoder.encode(dto.getPassword()));
             user.setRole(Role.ADMIN);
-            userRepository.save(user);
-            System.out.println("User entity saved successfully");
+            UserEntity savedUser = userRepository.save(user);
+            System.out.println("User entity saved successfully with ID: " + savedUser.getId());
     
             // Create and save admin details
             AdminDetails admin = new AdminDetails();
             admin.setName(dto.getName());
             admin.setEmail(dto.getEmail());
             admin.setPhone(dto.getPhone());
-            admin.setUser(user);
+            admin.setUser(savedUser);
             adminRepo.save(admin);
             System.out.println("Admin details saved successfully");
     
@@ -64,20 +72,20 @@ public class SignupService {
         }
     }
 
-    public boolean registerTeacher(TeacherSignupDTO dto) {
-        if (userRepository.findByUserId(dto.getTeacherId()).isPresent()) return false;
+    public boolean registerTeacher(TeacherSignupDTO teacherDto) {
+        if (userRepository.findByUserId(teacherDto.getTeacherId()).isPresent()) return false;
 
         UserEntity user = new UserEntity();
-        user.setUserId(dto.getTeacherId());
-        user.setPassword(passwordEncoder.encode(dto.getPassword()));
+        user.setUser_id(teacherDto.getTeacherId());
+        user.setPassword(passwordEncoder.encode(teacherDto.getPassword()));
         user.setRole(Role.TEACHER);
         userRepository.save(user);
 
         TeacherDetails teacher = new TeacherDetails();
-        teacher.setTeacherId(dto.getTeacherId());
-        teacher.setName(dto.getName());
-        teacher.setEmail(dto.getEmail());
-        teacher.setPhone(dto.getPhone());
+        teacher.setTeacherId(teacherDto.getTeacherId());
+        teacher.setName(teacherDto.getName());
+        teacher.setEmail(teacherDto.getEmail());
+        teacher.setPhone(teacherDto.getPhone());
         teacher.setUser(user);
         teacherRepo.save(teacher);
 
@@ -88,7 +96,7 @@ public class SignupService {
         if (userRepository.findByUserId(dto.getStudentId()).isPresent()) return false;
 
         UserEntity user = new UserEntity();
-        user.setUserId(dto.getStudentId());
+        user.setUser_id(dto.getStudentId());
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
         user.setRole(Role.STUDENT);
         userRepository.save(user);

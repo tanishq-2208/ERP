@@ -8,7 +8,7 @@ import Hallticket from '../assets/Hallticket.png';
 import Schedule from '../assets/Schedule.png';
 import Assignment from '../assets/Assignment.png';
 import Achievement from '../assets/Achievement.png';
-import homeScreenImage from '../Images/HomeScreen.png';
+import homeScreenImage from '../images/HomeScreen.png';
 import NavBar from './Nav';
 import { useNavigate } from 'react-router-dom';
 
