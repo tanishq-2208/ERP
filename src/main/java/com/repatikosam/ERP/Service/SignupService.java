@@ -38,18 +38,18 @@ public class SignupService {
 
     public boolean registerAdmin(AdminSignupDTO dto) {
         try {
-            System.out.println("Registering admin with userId: " + dto.getUser_id());
+            System.out.println("Registering admin with userId: " + dto.getUserId());
             
             // Check if user already exists
-            Optional<UserEntity> existingUserOpt = userRepository.findByUserId(dto.getUser_id());
+            Optional<UserEntity> existingUserOpt = userRepository.findByUserId(dto.getUserId());
             if (existingUserOpt.isPresent()) {
-                System.out.println("User already exists with userId: " + dto.getUser_id());
+                System.out.println("User already exists with userId: " + dto.getUserId());
                 return false;
             }
     
             // Create and save user entity
             UserEntity user = new UserEntity();
-            user.setUser_id(dto.getUser_id());
+            user.setUserId(dto.getUserId()); // Make sure this matches the DTO property name
             user.setPassword(passwordEncoder.encode(dto.getPassword()));
             user.setRole(Role.ADMIN);
             UserEntity savedUser = userRepository.save(user);
@@ -60,6 +60,7 @@ public class SignupService {
             admin.setName(dto.getName());
             admin.setEmail(dto.getEmail());
             admin.setPhone(dto.getPhone());
+            admin.setPassword(dto.getPassword()); // Or use passwordEncoder.encode(dto.getPassword()) if you want to store it encoded
             admin.setUser(savedUser);
             adminRepo.save(admin);
             System.out.println("Admin details saved successfully");
@@ -76,7 +77,7 @@ public class SignupService {
         if (userRepository.findByUserId(teacherDto.getTeacherId()).isPresent()) return false;
 
         UserEntity user = new UserEntity();
-        user.setUser_id(teacherDto.getTeacherId());
+        user.setUserId(teacherDto.getTeacherId());
         user.setPassword(passwordEncoder.encode(teacherDto.getPassword()));
         user.setRole(Role.TEACHER);
         userRepository.save(user);
@@ -96,7 +97,7 @@ public class SignupService {
         if (userRepository.findByUserId(dto.getStudentId()).isPresent()) return false;
 
         UserEntity user = new UserEntity();
-        user.setUser_id(dto.getStudentId());
+        user.setUserId(dto.getStudentId());
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
         user.setRole(Role.STUDENT);
         userRepository.save(user);

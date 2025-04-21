@@ -16,9 +16,12 @@ public class AdminDetails {
     private String name;
     private String email;
     private String phone;
+    
+    // Add password field to match database constraint
+    private String password;
 
-    // Change the column name to match your database structure
+    // Change the join column to reference user_id in users table
     @OneToOne
-    @JoinColumn(name = "user_id") // Changed from user_id to userid (without underscore)
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private UserEntity user;
 }

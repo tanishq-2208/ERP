@@ -6,7 +6,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class AdminSignupDTO {
-    private String user_id;
+    private String userId;
     private String password;
     private String name;
     private String email;

@@ -14,12 +14,12 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String user_id; // Custom ID like T123, S001
+    @Column(name = "user_id") // Map to the database column name
+    private String userId; // Changed from user_id to userId to follow Java conventions
+    
     private String password;
     private boolean enabled = true;
 
     @Enumerated(EnumType.STRING)
     private Role role;
-
-
 }
