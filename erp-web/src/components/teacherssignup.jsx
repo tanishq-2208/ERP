@@ -13,25 +13,79 @@ const TeachersSignup = () => {
         password: ''
     });
     const [message, setMessage] = useState('');
+    // Add loading state
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
     const handleRegisterClick = async () => {
+        // Form validation
+        if (!form.teacherId || !form.name || !form.email || !form.phone || !form.password) {
+            setMessage('Please fill in all fields');
+            return;
+        }
+        
+        setIsLoading(true);
+        setMessage('');
+        
         try {
+            // Create a modified form object with numeric teacherId if possible
+            const modifiedForm = {
+                ...form,
+                teacherId: /^\d+$/.test(form.teacherId) ? parseInt(form.teacherId, 10) : form.teacherId
+            };
+            
+            console.log('Sending data to backend:', modifiedForm);
+            
             const response = await fetch('http://localhost:8080/signup/teacher', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(form)
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json, text/plain, */*'
+                },
+                body: JSON.stringify(modifiedForm),
+                signal: AbortSignal.timeout(10000)
             });
-            const text = await response.text();
-            setMessage(text);
-            if (response.ok && text.includes('successful')) {
-                setTimeout(() => navigate('/Homepage'), 1500);
+            
+            console.log('Response status:', response.status);
+            
+            const contentType = response.headers.get('content-type');
+            let result;
+            
+            if (contentType && contentType.includes('application/json')) {
+                result = await response.json();
+                console.log('JSON response:', result);
+                
+                if (result.success) {
+                    setMessage('Signup successful! Redirecting to homepage...');
+                    setTimeout(() => navigate('/Homepage'), 1500);
+                } else {
+                    setMessage(`Signup failed: ${result.message || 'Please try again'}`);
+                }
+            } else {
+                result = await response.text();
+                console.log('Text response:', result);
+                
+                if (response.ok) {
+                    setMessage('Signup successful! Redirecting to homepage...');
+                    setTimeout(() => navigate('/Homepage'), 1500);
+                } else {
+                    setMessage(`Signup failed: ${result || 'Please try again'}`);
+                }
             }
         } catch (error) {
-            setMessage('Signup failed. Try again.');
+            console.error('Error during signup:', error);
+            if (error.name === 'AbortError') {
+                setMessage('Connection timeout. Is the backend server running?');
+            } else if (error.message === 'Failed to fetch') {
+                setMessage('Cannot connect to server. Please make sure the backend is running at http://localhost:8080');
+            } else {
+                setMessage(`Error: ${error.message || 'Could not connect to server'}`);
+            }
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -126,15 +180,17 @@ const TeachersSignup = () => {
                 <p className="font-Poppins text-lg font-normal ml-[429px] mt-[24px] mr-[135px] mb-[100px] text-fuchsia-950">
                     If you are already Registered ? <span onClick={handleSignInClick} className="text-blue-600 hover:text-blue-800 underline cursor-pointer">SignIn</span>
                 </p>
+             
                 <button
                     type="button"
                     onClick={handleRegisterClick}
-                    className="h-[40px] w-[169px] shadow-[2px_2px_4px_3px_rgba(0,0,0,0.25)] focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 text-sm font-medium font-serif rounded-[15px] px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700"
+                    disabled={isLoading}
+                    className={`h-[40px] w-[169px] shadow-[2px_2px_4px_3px_rgba(0,0,0,0.25)] focus:outline-none text-white ${isLoading ? 'bg-purple-500' : 'bg-purple-700 hover:bg-purple-800'} focus:ring-4 focus:ring-purple-300 text-sm font-medium font-serif rounded-[15px] px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700`}
                 >
-                    Register
+                    {isLoading ? 'Processing...' : 'Register'}
                 </button>
                 {message && (
-                    <div className="mt-4 text-center text-lg font-semibold text-purple-800">
+                    <div className={`mt-4 text-center text-lg font-semibold ${message.includes('successful') ? 'text-green-600' : 'text-red-600'}`}>
                         {message}
                     </div>
                 )}

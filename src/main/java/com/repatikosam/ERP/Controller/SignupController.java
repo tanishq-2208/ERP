@@ -45,9 +45,20 @@ public class SignupController {
         return response;
     }
 
+    // Add this for student JSON signup
+    
     @GetMapping("/signup/teacher")
     public String showTeacherSignupForm(Model model) {
         model.addAttribute("teacherDto", new TeacherSignupDTO());
+        return "teacher_signup";
+    }
+
+    // Add traditional form-based endpoint for teacher signup
+    @PostMapping("/signup/teacher")
+    public String processTeacherSignup(@ModelAttribute TeacherSignupDTO teacherDto, Model model) {
+        System.out.println("Received teacher signup request: " + teacherDto);
+        boolean success = signupService.registerTeacher(teacherDto);
+        model.addAttribute("message", success ? "Teacher signup successful!" : "Signup failed. Try again.");
         return "teacher_signup";
     }
 
@@ -63,6 +74,20 @@ public class SignupController {
         return response;
     }
 
+    @GetMapping("/signup/student")
+    public String showStudentSignupForm(Model model) {
+        model.addAttribute("studentDto", new StudentSignupDTO());
+        return "student_signup";
+    }
+
+    // Add traditional form-based endpoint for student signup
+    @PostMapping("/signup/student")
+    public String processStudentSignup(@ModelAttribute StudentSignupDTO studentDto, Model model) {
+        System.out.println("Received student signup request: " + studentDto);
+        boolean success = signupService.registerStudent(studentDto);
+        model.addAttribute("message", success ? "Student signup successful!" : "Signup failed. Try again.");
+        return "student_signup";
+    }
     @PostMapping(value = "/signup/student", consumes = "application/json", produces = "application/json")
     @ResponseBody
     public Map<String, Object> processStudentSignupJson(@RequestBody StudentSignupDTO studentDto) {
@@ -72,17 +97,5 @@ public class SignupController {
         response.put("success", success);
         response.put("message", success ? "Student signup successful!" : "Signup failed. Try again.");
         return response;
-    }
-    @GetMapping("/signup/student")
-    public String showStudentSignupForm(Model model) {
-        model.addAttribute("studentDto", new StudentSignupDTO());
-        return "student_signup";
-    }
-
-    @PostMapping("/signup/student")
-    public String processStudentSignup(@ModelAttribute StudentSignupDTO studentDto, Model model) {
-        boolean success = signupService.registerStudent(studentDto);
-        model.addAttribute("message", success ? "Student signup successful!" : "Signup failed. Try again.");
-        return "student_signup";
     }
 }

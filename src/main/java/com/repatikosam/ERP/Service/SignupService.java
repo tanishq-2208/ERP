@@ -60,7 +60,7 @@ public class SignupService {
             admin.setName(dto.getName());
             admin.setEmail(dto.getEmail());
             admin.setPhone(dto.getPhone());
-            admin.setPassword(dto.getPassword()); // Or use passwordEncoder.encode(dto.getPassword()) if you want to store it encoded
+            admin.setPassword(passwordEncoder.encode(dto.getPassword())); // Or use passwordEncoder.encode(dto.getPassword()) if you want to store it encoded
             admin.setUser(savedUser);
             adminRepo.save(admin);
             System.out.println("Admin details saved successfully");
@@ -74,43 +74,79 @@ public class SignupService {
     }
 
     public boolean registerTeacher(TeacherSignupDTO teacherDto) {
-        if (userRepository.findByUserId(teacherDto.getTeacherId()).isPresent()) return false;
-
-        UserEntity user = new UserEntity();
-        user.setUserId(teacherDto.getTeacherId());
-        user.setPassword(passwordEncoder.encode(teacherDto.getPassword()));
-        user.setRole(Role.TEACHER);
-        userRepository.save(user);
-
-        TeacherDetails teacher = new TeacherDetails();
-        teacher.setTeacherId(teacherDto.getTeacherId());
-        teacher.setName(teacherDto.getName());
-        teacher.setEmail(teacherDto.getEmail());
-        teacher.setPhone(teacherDto.getPhone());
-        teacher.setUser(user);
-        teacherRepo.save(teacher);
-
-        return true;
+        try {
+            System.out.println("Registering teacher with teacherId: " + teacherDto.getTeacherId());
+            
+            // Check if user already exists
+            Optional<UserEntity> existingUserOpt = userRepository.findByUserId(teacherDto.getTeacherId());
+            if (existingUserOpt.isPresent()) {
+                System.out.println("User already exists with teacherId: " + teacherDto.getTeacherId());
+                return false;
+            }
+    
+            // Create and save user entity
+            UserEntity user = new UserEntity();
+            user.setUserId(teacherDto.getTeacherId());
+            user.setPassword(passwordEncoder.encode(teacherDto.getPassword()));
+            user.setRole(Role.TEACHER);
+            UserEntity savedUser = userRepository.save(user);
+            System.out.println("User entity saved successfully with ID: " + savedUser.getId());
+    
+            // Create and save teacher details
+            TeacherDetails teacher = new TeacherDetails();
+            teacher.setTeacherId(teacherDto.getTeacherId());
+            teacher.setName(teacherDto.getName());
+            teacher.setEmail(teacherDto.getEmail());
+            teacher.setPhone(teacherDto.getPhone());
+            teacher.setPassword(passwordEncoder.encode(teacherDto.getPassword())); // Store the password in teacher details
+            teacher.setUser(savedUser);
+            teacherRepo.save(teacher);
+            System.out.println("Teacher details saved successfully");
+    
+            return true;
+        } catch (Exception e) {
+            System.err.println("Error registering teacher: " + e.getMessage());
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public boolean registerStudent(StudentSignupDTO dto) {
-        if (userRepository.findByUserId(dto.getStudentId()).isPresent()) return false;
+        try {
+            System.out.println("Registering student with studentId: " + dto.getStudentId());
 
-        UserEntity user = new UserEntity();
-        user.setUserId(dto.getStudentId());
-        user.setPassword(passwordEncoder.encode(dto.getPassword()));
-        user.setRole(Role.STUDENT);
-        userRepository.save(user);
+            // Check if user already exists
+            Optional<UserEntity> existingUserOpt = userRepository.findByUserId(dto.getStudentId());
+            if (existingUserOpt.isPresent()) {
+                System.out.println("User already exists with studentId: " + dto.getStudentId());
+                return false;
+            }
 
-        StudentDetails student = new StudentDetails();
-        student.setStudentId(dto.getStudentId());
-        student.setStudentName(dto.getStudentName());
-        student.setDob(dto.getDob());
-        student.setParentName(dto.getParentName());
-        student.setParentPhone(dto.getParentPhone());
-        student.setUser(user);
-        studentRepo.save(student);
+            // Create and save user entity
+            UserEntity user = new UserEntity();
+            user.setUserId(dto.getStudentId());
+            user.setPassword(passwordEncoder.encode(dto.getPassword()));
+            user.setRole(Role.STUDENT);
+            UserEntity savedUser = userRepository.save(user);
+            System.out.println("User entity saved successfully with ID: " + savedUser.getId());
 
-        return true;
+            // Create and save student details
+            StudentDetails student = new StudentDetails();
+            student.setStudentId(dto.getStudentId());
+            student.setStudentName(dto.getStudentName());
+            student.setDob(dto.getDob());
+            student.setParentName(dto.getParentName());
+            student.setParentPhone(dto.getParentPhone());
+            student.setPassword(passwordEncoder.encode(dto.getPassword())); // Store the password in student details if field exists
+            student.setUser(savedUser);
+            studentRepo.save(student);
+            System.out.println("Student details saved successfully");
+
+            return true;
+        } catch (Exception e) {
+            System.err.println("Error registering student: " + e.getMessage());
+            e.printStackTrace();
+            return false;
+        }
     }
 }
