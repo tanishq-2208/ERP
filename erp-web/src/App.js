@@ -15,6 +15,8 @@ import HomeScreen from "./Components/HomeScreen.jsx";
 import AdminHomescreen from "./Components/admin_homescreen.jsx";
 import TeacherHomeScreen from "./Components/teacher_homescreen.jsx";
 import ParentHomeScreen from "./Components/parent_homescreen.jsx";
+import ParentsSignup from "./Components/parentssignup.jsx";
+
 
 
 function App() {
@@ -68,6 +70,7 @@ function App() {
                 <Route path="/AdminHome" element={<AdminHomescreen />} />
                 <Route path="/TeacherHome" element={<TeacherHomeScreen />} />
                 <Route path="/parentHome" element={<ParentHomeScreen />} />
+                <Route path="/parent" element={<ParentsSignup />} />
             </Routes>
         </Router>
     );

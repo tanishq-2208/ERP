@@ -2,6 +2,7 @@ package com.repatikosam.ERP.Controller;
 
 import com.repatikosam.ERP.Service.SignupService;
 import com.repatikosam.ERP.dto.AdminSignupDTO;
+import com.repatikosam.ERP.dto.ParentSignupDTO;  // Add this import
 import com.repatikosam.ERP.dto.StudentSignupDTO;
 import com.repatikosam.ERP.dto.TeacherSignupDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -96,6 +97,31 @@ public class SignupController {
         Map<String, Object> response = new HashMap<>();
         response.put("success", success);
         response.put("message", success ? "Student signup successful!" : "Signup failed. Try again.");
+        return response;
+    }
+
+    @GetMapping("/signup/parent")
+    public String showParentSignupForm(Model model) {
+        model.addAttribute("parentDto", new ParentSignupDTO());
+        return "parent_signup";
+    }
+
+    @PostMapping("/signup/parent")
+    public String processParentSignup(@ModelAttribute ParentSignupDTO parentDto, Model model) {
+        System.out.println("Received parent signup request: " + parentDto);
+        boolean success = signupService.registerParent(parentDto);
+        model.addAttribute("message", success ? "Parent signup successful!" : "Signup failed. Try again.");
+        return "parent_signup";
+    }
+
+    @PostMapping(value = "/signup/parent", consumes = "application/json", produces = "application/json")
+    @ResponseBody
+    public Map<String, Object> processParentSignupJson(@RequestBody ParentSignupDTO parentDto) {
+        System.out.println("Received parent signup JSON request: " + parentDto);
+        boolean success = signupService.registerParent(parentDto);
+        Map<String, Object> response = new HashMap<>();
+        response.put("success", success);
+        response.put("message", success ? "Parent signup successful!" : "Signup failed. Try again.");
         return response;
     }
 }
