@@ -74,7 +74,7 @@ const AdminHomescreen = () => {
                         <img src={attendanceLogo} alt="Attendance" className="w-12 h-12 mr-4" />
                         <span className="font-saira text-lg">Post Attendance</span>
                     </a>
-                    <a href="#" className="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg font-saira hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110" onClick={() => goToPage("Results")}>
+                    <a href="#" className="bg-purple-200 p-3 rounded-lg flex items-center shadow-lg font-saira hover:bg-[#BE9FE1] transform motion-safe:hover:scale-110" onClick={() => goToPage("Adminsresult")}>
                         <img src={resultLogo} alt="Results" className="w-12 h-12 mr-4" />
                         <span className="font-semibold text-lg">Post Results</span>
                     </a>
