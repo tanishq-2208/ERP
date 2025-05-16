@@ -12,6 +12,9 @@ import Adminsresult from './Components/Adminsresult.jsx';
 import Teachersdomain from './Components/teachersdomain.jsx';
 import {LoginSignup} from "./Components/loginSignup.jsx";
 import HomeScreen from "./Components/HomeScreen.jsx";
+import AdminHomescreen from "./Components/admin_homescreen.jsx";
+import TeacherHomeScreen from "./Components/teacher_homescreen.jsx";
+import ParentHomeScreen from "./Components/parent_homescreen.jsx";
 
 
 function App() {
@@ -62,6 +65,9 @@ function App() {
                 <Route path="/Adminsresult" element={<Adminsresult />} />
                 <Route path="/timetable" element={<Timetable />} />
                 <Route path="/Homepage" element={<HomeScreen />} />
+                <Route path="/AdminHome" element={<AdminHomescreen />} />
+                <Route path="/TeacherHome" element={<TeacherHomeScreen />} />
+                <Route path="/parentHome" element={<ParentHomeScreen />} />
             </Routes>
         </Router>
     );
