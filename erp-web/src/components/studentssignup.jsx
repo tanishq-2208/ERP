@@ -25,21 +25,7 @@ const StudentsSignup = () => {
                 backgroundAttachment: 'fixed',
             }}>
         <div>
-            <nav class="bg-purple-400 p-2 fixed top-0 left-0 right-0 z-50">
-                <div class="flex items-center justify-between">
-                    <div class="flex space-x-20 items-center ml-60 ">
-                        <a href="#" class="text-white font-semibold">Home</a>
-                        <a href="#" class="text-white font-semibold">Contact</a>
-                        <a href="#" class="text-white font-semibold">About</a>
-                        <a href="#" class="text-white font-semibold">Help</a>
-                    </div>
-                    <div>
-                        <span class="inline-block bg-purple-300 rounded-full mr-4">
-                            <img src={Profile} alt="profile" />
-                        </span>
-                    </div>
-                </div>
-            </nav>
+            
             <div class="mt-36">
                 <span class="font-serif text-5xl font-medium flex justify-center">Student's Signup</span>
             </div>

@@ -15,21 +15,7 @@ const Teachersdomain = () => {
         }}
       >
         <div>
-            <nav class="bg-purple-400 p-2 fixed top-0 left-0 right-0 z-50">
-                <div class="flex items-center justify-between">
-                    <div class="flex space-x-20 items-center ml-60 ">
-                        <a href="#" class="text-white font-semibold">Home</a>
-                        <a href="#" class="text-white font-semibold">Contact</a>
-                        <a href="#" class="text-white font-semibold">About</a>
-                        <a href="#" class="text-white font-semibold">Help</a>
-                    </div>
-                    <div>
-                        <span class="inline-block bg-purple-300 rounded-full mr-4">
-                            <img src={Profile} alt="profile" />
-                        </span>
-                    </div>
-                </div>
-            </nav>
+            
             <div class="h-[430px] w-[430px] bg-purple-200 mt-[220px] ml-[540px] rounded-lg flex flex-col justify-center">
                 <form class="max-w-sm mx-auto">
                     <label class="block mb-2 text-1xl font-serif text-gray-900 dark:text-black flex pl-[20px] pt-[1px]">Class</label>
