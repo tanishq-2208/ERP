@@ -42,10 +42,13 @@ const TeacherHomeScreen = () => {
         backgroundAttachment: 'fixed',
       }}
     >
-        
+         {/* Navbar */}
+         <NavBar />
 
+{/* Spacing for fixed navbar */}
+     {/* <div className="pt-3"></div> */}
 
-            {/* Student Info */}
+     {/* Student Info */}
             <h1 className="font-serif text-2xl pt-20 text-left ml-10 font-medium">About School</h1>
             <br/>
 

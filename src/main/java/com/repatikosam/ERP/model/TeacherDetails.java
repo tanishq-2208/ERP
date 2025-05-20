@@ -19,6 +19,9 @@ public class TeacherDetails {
 
     @Column(name = "password")
     private String password;
+    public String getPassword() {
+        return password;
+    }
 
     @Column(name = "name")
     private String name;

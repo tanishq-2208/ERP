@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 import Results from './Components/Results.js';
 import FeePayment from './Components/feepayment.jsx';
@@ -51,9 +51,7 @@ function App() {
     const [name, setName] = useState("Default")
 
     return (
-        <Router>
-
-
+        <BrowserRouter>
             <Routes>
                 <Route path="/Results" element={<Results />} />
                 <Route path="/feepayment" element={<FeePayment/>} />
@@ -66,13 +64,13 @@ function App() {
                 <Route path="/Teachersdomain" element={<Teachersdomain />} />
                 <Route path="/Adminsresult" element={<Adminsresult />} />
                 <Route path="/timetable" element={<Timetable />} />
+                <Route path="/admin_homescreen" element={<AdminHomescreen />} />
+                <Route path="/teacher_homescreen" element={<TeacherHomeScreen />} />
+                <Route path="/parent_homescreen" element={<ParentHomeScreen />} />
                 <Route path="/Homepage" element={<HomeScreen />} />
-                <Route path="/AdminHome" element={<AdminHomescreen />} />
-                <Route path="/TeacherHome" element={<TeacherHomeScreen />} />
-                <Route path="/parentHome" element={<ParentHomeScreen />} />
                 <Route path="/parent" element={<ParentsSignup />} />
             </Routes>
-        </Router>
+        </BrowserRouter>
     );
 }
 

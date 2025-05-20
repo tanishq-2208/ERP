@@ -18,6 +18,9 @@ public class StudentDetails {
     private String studentId;
     @Column(name = "password")
     private String password;
+    public String getPassword() {
+        return password;
+    }
     @Column(name = "student_name")
     private String studentName;
     @Column(name = "dob")

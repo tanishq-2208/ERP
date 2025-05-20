@@ -58,8 +58,8 @@ const ParentsSignup = () => {
                 console.log('JSON response:', result);
                 
                 if (result.success) {
-                    setMessage('Signup successful! Redirecting to homepage...');
-                    setTimeout(() => navigate('/Homepage'), 1500);
+                    setMessage('Signup successful! Redirecting to parent home...');
+                    setTimeout(() => navigate('/parent_homescreen'), 1500); // Navigate to parent_homescreen.jsx
                 } else {
                     setMessage(`Signup failed: ${result.message || 'Please try again'}`);
                 }
@@ -68,8 +68,8 @@ const ParentsSignup = () => {
                 console.log('Text response:', result);
                 
                 if (response.ok) {
-                    setMessage('Signup successful! Redirecting to homepage...');
-                    setTimeout(() => navigate('/Homepage'), 1500);
+                    setMessage('Signup successful! Redirecting to parent home...');
+                    setTimeout(() => navigate('/parent_homescreen'), 1500); // Navigate to parent_homescreen.jsx
                 } else {
                     setMessage(`Signup failed: ${result || 'Please try again'}`);
                 }
@@ -103,21 +103,6 @@ const ParentsSignup = () => {
                 backgroundAttachment: 'fixed',
             }}>
             <div>
-                <nav className="bg-purple-400 p-2 fixed top-0 left-0 right-0 z-50">
-                    <div className="flex items-center justify-between">
-                        <div className="flex space-x-20 items-center ml-60 ">
-                            <a href="#" className="text-white font-semibold">Home</a>
-                            <a href="#" className="text-white font-semibold">Contact</a>
-                            <a href="#" className="text-white font-semibold">About</a>
-                            <a href="#" className="text-white font-semibold">Help</a>
-                        </div>
-                        <div>
-                            <span className="inline-block bg-purple-300 rounded-full mr-4">
-                                <img src={Profile} alt="profile" />
-                            </span>
-                        </div>
-                    </div>
-                </nav>
                 <div className="mt-36">
                     <span className="font-serif text-5xl font-medium flex justify-center">Parent's Signup</span>
                 </div>

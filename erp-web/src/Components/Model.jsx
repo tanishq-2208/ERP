@@ -22,35 +22,6 @@ export const Model = ({ role }) => {
     }
   };
 
-<<<<<<< HEAD
-  const handleSignIn = (e) => {
-    e.preventDefault();
-    const userId = document.getElementById(`${role}-userId`).value;
-    const password = document.getElementById(`${role}-password`).value;
-
-    if (!userId || !password) {
-      alert('Please fill in all fields');
-      return;
-    }
-
-    switch (role) {
-      case 'Student':
-        goToPage('Homepage');
-        break;
-      case 'Teacher':
-        goToPage('TeacherHome');
-        break;
-      case 'Admin':
-        goToPage('AdminHome');
-        break;
-      case 'Parent':
-        goToPage('ParentHome');
-        break;
-      default:
-        goToPage('Homepage');
-    }
-  };
-=======
   const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
@@ -81,7 +52,15 @@ export const Model = ({ role }) => {
       if (data.success && data.token) {
         localStorage.setItem('token', data.token);
         alert(data.message || "Sign Successful!!!");
-        navigate('/Homepage');
+        if (role === 'Admin') {
+          navigate('/admin_homescreen');
+        } else if (role === 'Teacher') {
+          navigate('/teacher_homescreen');
+        } else if (role === 'Student') {
+          navigate('/Homepage'); // Navigate to HomeScreen.jsx for students
+        } else {
+          navigate('/Homepage');
+        }
       } else {
         setError(data.error || 'Login failed');
       }
@@ -89,16 +68,11 @@ export const Model = ({ role }) => {
       setError('Network error');
     }
 };
->>>>>>> 5199bb76 (Authentcation Completed)
 
   return (
     <div className="p-2 rounded-lg shadow-lg" style={{ backgroundColor: 'rgba(225, 204, 236, 0.5)', width: '825px' }}>
       <h2 className="text-lg font-semibold mb-2.5 text-purple-700 text-center">{role}'s Login</h2>
-<<<<<<< HEAD
-      <form className="flex flex-col items-center" onSubmit={handleSignIn}>
-=======
       <form className="flex flex-col items-center" onSubmit={handleLogin}>
->>>>>>> 5199bb76 (Authentcation Completed)
         <div className="mb-2 w-10/12">
           <label htmlFor={`${role}-userId`} className="block text-gray-700 mb-0.5">Enter your ID:</label>
           <input

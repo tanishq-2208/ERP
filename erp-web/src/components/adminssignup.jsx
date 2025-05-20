@@ -57,8 +57,8 @@ const AdminsSignup = () => {
                 console.log('JSON response:', result);
                 
                 if (result.success) {
-                    setMessage('Signup successful! Redirecting to homepage...');
-                    setTimeout(() => navigate('/Homepage'), 1500);
+                    setMessage('Signup successful! Redirecting to admin home...');
+                    navigate('/admin_homescreen'); // Navigate to admin_homescreen.jsx
                 } else {
                     setMessage(`Signup failed: ${result.message || 'Please try again'}`);
                 }
@@ -67,8 +67,8 @@ const AdminsSignup = () => {
                 console.log('Text response:', result);
                 
                 if (response.ok) {
-                    setMessage('Signup successful! Redirecting to homepage...');
-                    setTimeout(() => navigate('/Homepage'), 1500);
+                    setMessage('Signup successful! Redirecting to admin home...');
+                    setTimeout(() => navigate('/admin_homescreen'), 1500); // Navigate to admin_homescreen.jsx
                 } else {
                     setMessage(`Signup failed: ${result || 'Please try again'}`);
                 }
@@ -101,11 +101,6 @@ const AdminsSignup = () => {
                 backgroundRepeat: 'no-repeat',
                 backgroundAttachment: 'fixed',
             }}>
-<<<<<<< HEAD
-        <div>
-            <div className="mt-36">
-                <span className="font-serif text-5xl font-medium flex justify-center">Admin's Signup</span>
-=======
             <div>
                 <nav className="bg-purple-400 p-2 fixed top-0 left-0 right-0 z-50">
                     <div className="flex items-center justify-between">
@@ -191,7 +186,6 @@ const AdminsSignup = () => {
                         </div>
                     )}
                 </div>
->>>>>>> b9cab011 (auth)
             </div>
         </div>
     );

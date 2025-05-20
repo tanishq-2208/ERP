@@ -18,6 +18,10 @@ public class UserEntity {
     private String userId; // Changed from user_id to userId to follow Java conventions
     
     private String password;
+
+    public String getPassword() {
+        return password;
+    }
     private boolean enabled = true;
 
     @Enumerated(EnumType.STRING)
