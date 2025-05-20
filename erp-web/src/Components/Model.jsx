@@ -1,28 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const Model = ({ role }) => {
   const inputBackgroundColor = 'rgba(225, 204, 236, 0.8)';
   const navigate = useNavigate();
-  const goToPage = (page) => {
-    navigate(`/${page}`);
-  };
+  const [userId, setUserId] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleSignupClick = () => {
     if (role === 'Student') {
-      goToPage('student');
+      navigate('student');
     } else if (role === 'Teacher') {
-      goToPage('teacher');
-    }else if (role === 'Admin') {
-      goToPage('admin');
-    }else if (role === 'Parent') {
-      goToPage('parent');
-    }
-     else {
-      goToPage(`${role.toLowerCase()}signup`);
+      navigate('teacher');
+    } else if (role === 'Admin') {
+      navigate('admin');
+    } else if (role === 'Parent') {
+      navigate('parent');
+    } else {
+      navigate(`${role.toLowerCase()}signup`);
     }
   };
 
+<<<<<<< HEAD
   const handleSignIn = (e) => {
     e.preventDefault();
     const userId = document.getElementById(`${role}-userId`).value;
@@ -50,17 +50,63 @@ export const Model = ({ role }) => {
         goToPage('Homepage');
     }
   };
+=======
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError('');
+    if (!userId || !password) {
+      setError('Please fill all fields');
+      return;
+    }
+    try {
+      let body;
+      let endpoint;
+      if (role === 'Teacher') {
+        endpoint = 'http://localhost:8080/auth/teacher-login';
+        body = JSON.stringify({ teacherId: userId, password });
+      } else if (role === 'Student') {
+        endpoint = 'http://localhost:8080/auth/student-login';
+        body = JSON.stringify({ studentId: userId, password });
+      } else {
+        endpoint = 'http://localhost:8080/auth/login';
+        body = JSON.stringify({ userId, password });
+      }
+
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body,
+      });
+      const data = await response.json();
+      if (data.success && data.token) {
+        localStorage.setItem('token', data.token);
+        alert(data.message || "Sign Successful!!!");
+        navigate('/Homepage');
+      } else {
+        setError(data.error || 'Login failed');
+      }
+    } catch (err) {
+      setError('Network error');
+    }
+};
+>>>>>>> 5199bb76 (Authentcation Completed)
 
   return (
     <div className="p-2 rounded-lg shadow-lg" style={{ backgroundColor: 'rgba(225, 204, 236, 0.5)', width: '825px' }}>
       <h2 className="text-lg font-semibold mb-2.5 text-purple-700 text-center">{role}'s Login</h2>
+<<<<<<< HEAD
       <form className="flex flex-col items-center" onSubmit={handleSignIn}>
+=======
+      <form className="flex flex-col items-center" onSubmit={handleLogin}>
+>>>>>>> 5199bb76 (Authentcation Completed)
         <div className="mb-2 w-10/12">
           <label htmlFor={`${role}-userId`} className="block text-gray-700 mb-0.5">Enter your ID:</label>
           <input
             type="text"
             id={`${role}-userId`}
             placeholder="User ID"
+            value={userId}
+            onChange={e => setUserId(e.target.value)}
             className="border border-gray-300 rounded w-full py-1 px-2 shadow-sm focus:outline-none focus:border-purple-500"
             style={{ backgroundColor: inputBackgroundColor }}
           />
@@ -71,10 +117,13 @@ export const Model = ({ role }) => {
             type="password"
             id={`${role}-password`}
             placeholder="Password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
             className="border border-gray-300 rounded w-full py-1 px-2 shadow-sm focus:outline-none focus:border-purple-500"
             style={{ backgroundColor: inputBackgroundColor }}
           />
         </div>
+        {error && <div className="text-red-500 mb-2">{error}</div>}
         <div className="mb-1.5 mt-0.5 text-gray-600">
           <p>
             New user?{' '}

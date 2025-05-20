@@ -1,6 +1,6 @@
 package com.repatikosam.ERP.auth;
 
-public enum Role {
+public enum Role  {
     ADMIN,
     TEACHER,
     STUDENT,

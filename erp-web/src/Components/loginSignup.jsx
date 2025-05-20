@@ -5,7 +5,7 @@ import StudentImg from '../assets/studentImg.png';
 import ParentImg from '../assets/parentImg.png';
 import AdminImg from '../assets/adminImg.png';
 import Background from '../assets/background.png';
-import { Model } from './Model'; // Import the LoginForm component
+import { Model } from './Model.jsx'; // Import the LoginForm component
 import { useNavigate } from 'react-router-dom';
 
 export const LoginSignup = () => {

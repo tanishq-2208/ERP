@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AdminDetailsRepository extends JpaRepository<AdminDetails, Long> {
-
+    Optional<AdminDetails> findByUser(UserEntity user);
 }
