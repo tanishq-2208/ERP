@@ -23,10 +23,38 @@ export const Model = ({ role }) => {
     }
   };
 
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    const userId = document.getElementById(`${role}-userId`).value;
+    const password = document.getElementById(`${role}-password`).value;
+
+    if (!userId || !password) {
+      alert('Please fill in all fields');
+      return;
+    }
+
+    switch (role) {
+      case 'Student':
+        goToPage('Homepage');
+        break;
+      case 'Teacher':
+        goToPage('TeacherHome');
+        break;
+      case 'Admin':
+        goToPage('AdminHome');
+        break;
+      case 'Parent':
+        goToPage('ParentHome');
+        break;
+      default:
+        goToPage('Homepage');
+    }
+  };
+
   return (
     <div className="p-2 rounded-lg shadow-lg" style={{ backgroundColor: 'rgba(225, 204, 236, 0.5)', width: '825px' }}>
       <h2 className="text-lg font-semibold mb-2.5 text-purple-700 text-center">{role}'s Login</h2>
-      <form className="flex flex-col items-center">
+      <form className="flex flex-col items-center" onSubmit={handleSignIn}>
         <div className="mb-2 w-10/12">
           <label htmlFor={`${role}-userId`} className="block text-gray-700 mb-0.5">Enter your ID:</label>
           <input
@@ -57,7 +85,7 @@ export const Model = ({ role }) => {
         </div>
         <button
           type="submit"
-          className="bg-purple-500 text-white text-base rounded-md py-0.5 px-3 mb-1 font-semibold hover:bg-purple-600 focus:outline-none focus:bg-purple-600 shadow-md" onClick={() => goToPage("Homepage")}
+          className="bg-purple-500 text-white text-base rounded-md py-0.5 px-3 mb-1 font-semibold hover:bg-purple-600 focus:outline-none focus:bg-purple-600 shadow-md"
         >
           Sign In
         </button>

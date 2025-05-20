@@ -54,27 +54,6 @@ export const LoginSignup = () => {
         backgroundPosition: 'center' 
       }}
     >
-      <nav className="bg-purple-400 fixed top-0 left-0 right-0 z-50 p-2">
-        <div className="flex items-center justify-between max-w-7xl mx-auto">
-          <div className="flex space-x-32 items-center ml-10">
-            {/* Navigation buttons */}
-            <button className="text-white xl:text-xl lg:text-xl md:text-lg sm:text-base font-semibold hover:text-purple-200 transition-colors duration-300">Home</button>
-            <button className="text-white xl:text-xl lg:text-xl md:text-lg sm:text-base font-semibold hover:text-purple-200 transition-colors duration-300">Contact</button>
-            <button className="text-white xl:text-xl lg:text-xl md:text-lg sm:text-base font-semibold hover:text-purple-200 transition-colors duration-300">About</button>
-            <button className="text-white xl:text-xl lg:text-xl md:text-lg sm:text-base font-semibold hover:text-purple-200 transition-colors duration-300">Help</button>
-          </div>
-          {/* Profile image */}
-          <div className="mr-2 sm:mr-4 md:mr-8">
-            <span className="inline-block w-10 h-10 bg-purple-300 rounded-full overflow-hidden xl:w-12 xl:h-12 lg:w-11 lg:h-11 md:w-10 md:h-10 sm:w-9 sm:h-9">
-              <img 
-                src={profileImage} 
-                alt="Profile" 
-                className="w-full h-full object-cover"
-              />
-            </span>
-          </div>
-        </div>
-      </nav>
       
       <div className="flex flex-col w-full mt-16 px-4">
         {/* Responsive Card components with alternating layout */}
