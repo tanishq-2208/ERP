@@ -1,4 +1,4 @@
-// src/components/AboutScreen.js
+// src/temp_component/AboutScreen.js
 import React from 'react';
 import NavBar from './Nav';
 

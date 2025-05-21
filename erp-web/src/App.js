@@ -1,21 +1,21 @@
 import { BrowserRouter as BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
-import Results from './Components/Results.js';
-import FeePayment from './Components/feepayment.jsx';
-import Attendance from './Components/attendance.jsx';
-import Schedule from './Components/schedule.jsx';
-import TeachersSignup from './Components/teacherssignup.jsx';
-import AdminsSignup from './Components/adminssignup.jsx';
-import StudentsSignup from './Components/studentssignup.jsx';
-import Timetable from "./Components/timetable.jsx";
-import Adminsresult from './Components/Adminsresult.jsx';
-import Teachersdomain from './Components/teachersdomain.jsx';
-import {LoginSignup} from "./Components/loginSignup.jsx";
-import HomeScreen from "./Components/HomeScreen.jsx";
-import AdminHomescreen from "./Components/admin_homescreen.jsx";
-import TeacherHomeScreen from "./Components/teacher_homescreen.jsx";
-import ParentHomeScreen from "./Components/parent_homescreen.jsx";
-import ParentsSignup from "./Components/parentssignup.jsx";
+import Results from './temp_component/Results.js';
+import FeePayment from './temp_component/feepayment.jsx';
+import Attendance from './temp_component/attendance.jsx';
+import Schedule from './temp_component/schedule.jsx';
+import TeachersSignup from './temp_component/teacherssignup.jsx';
+import AdminsSignup from './temp_component/adminssignup.jsx';
+import StudentsSignup from './temp_component/studentssignup.jsx';
+import Timetable from "./temp_component/timetable.jsx";
+import Adminsresult from './temp_component/Adminsresult.jsx';
+import Teachersdomain from './temp_component/teachersdomain.jsx';
+import {LoginSignup} from "./temp_component/loginSignup.jsx";
+import HomeScreen from "./temp_component/HomeScreen.jsx";
+import AdminHomescreen from "./temp_component/admin_homescreen.jsx";
+import TeacherHomeScreen from "./temp_component/teacher_homescreen.jsx";
+import ParentHomeScreen from "./temp_component/parent_homescreen.jsx";
+import ParentsSignup from "./temp_component/parentssignup.jsx";
 
 
 
