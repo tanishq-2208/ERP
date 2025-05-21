@@ -19,7 +19,7 @@ import ParentsSignup from "./temp_component/parentssignup.jsx";
 import AdminPublishResults from './temp_component/AdminPublishResults.jsx';
 import AddMarks from './temp_component/AddMarks.jsx';
 import MarkAttendance from './temp_component/MarkAttendance.jsx';
-// fuck vivek and tanishq..chupuk chupuk.....
+// fuck vivek and tanishq..chupuk chupuk..... in middle usham came bumchuk abdul and drunk tanishq's milk
 
 function App() {
     const [message, setMessage] = useState('');

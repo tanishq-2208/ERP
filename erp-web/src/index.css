@@ -7,13 +7,8 @@
 
 
 @tailwind base;
-<<<<<<< HEAD
-@tailwind temp_component;
+@tailwind base;
 @tailwind utilities;
 
 
 
-=======
-@tailwind components;
-@tailwind utilities;
->>>>>>> 92b28259 (made some changes)
