@@ -16,8 +16,10 @@ import AdminHomescreen from "./temp_component/admin_homescreen.jsx";
 import TeacherHomeScreen from "./temp_component/teacher_homescreen.jsx";
 import ParentHomeScreen from "./temp_component/parent_homescreen.jsx";
 import ParentsSignup from "./temp_component/parentssignup.jsx";
-
-
+import AdminPublishResults from './temp_component/AdminPublishResults.jsx';
+import AddMarks from './temp_component/AddMarks.jsx';
+import MarkAttendance from './temp_component/MarkAttendance.jsx';
+// fuck vivek and tanishq..chupuk chupuk..... in middle usham came bumchuk abdul and drunk tanishq's milk
 
 function App() {
     const [message, setMessage] = useState('');
@@ -69,6 +71,12 @@ function App() {
                 <Route path="/parent_homescreen" element={<ParentHomeScreen />} />
                 <Route path="/Homepage" element={<HomeScreen />} />
                 <Route path="/parent" element={<ParentsSignup />} />
+                <Route path="/AdminHome" element={<AdminHomescreen />} />
+                <Route path="/TeacherHome" element={<TeacherHomeScreen />} />
+                <Route path="/parentHome" element={<ParentHomeScreen />} />
+                <Route path="/AdminPublishResults" element={<AdminPublishResults />} />
+                <Route path="/AddMarks" element={<AddMarks />} />
+                <Route path="/MarkAttendance" element={<MarkAttendance />} />
             </Routes>
         </BrowserRouter>
     );
