@@ -5,7 +5,7 @@ import StudentImg from '../assets/studentImg.png';
 import ParentImg from '../assets/parentImg.png';
 import AdminImg from '../assets/adminImg.png';
 import Background from '../assets/background.png';
-import { Model } from './Model'; // Import the LoginForm component
+import { Model } from './Model.jsx'; // Import the LoginForm component
 import { useNavigate } from 'react-router-dom';
 
 export const LoginSignup = () => {
@@ -56,7 +56,7 @@ export const LoginSignup = () => {
     >
       
       <div className="flex flex-col w-full mt-16 px-4">
-        {/* Responsive Card components with alternating layout */}
+        {/* Responsive Card temp_component with alternating layout */}
         <Card imageSrc={TeacherImg} altText="Teacher" index={0} role="Teacher" />
         <Card imageSrc={StudentImg} altText="Student" index={1} role="Student" />
         <Card imageSrc={ParentImg} altText="Parent" index={2} role="Parent" />

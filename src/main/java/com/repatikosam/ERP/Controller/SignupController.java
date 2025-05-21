@@ -1,0 +1,127 @@
+package com.repatikosam.ERP.Controller;
+
+import com.repatikosam.ERP.Service.SignupService;
+import com.repatikosam.ERP.dto.AdminSignupDTO;
+import com.repatikosam.ERP.dto.ParentSignupDTO;  // Add this import
+import com.repatikosam.ERP.dto.StudentSignupDTO;
+import com.repatikosam.ERP.dto.TeacherSignupDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
+import java.util.HashMap;
+
+@Controller
+public class SignupController {
+
+    @Autowired
+    private SignupService signupService;
+
+    @GetMapping("/signup/admin")
+    public String showAdminSignupForm(Model model) {
+        model.addAttribute("adminDto", new AdminSignupDTO());
+        return "admin_signup";
+    }
+
+    // In your processAdminSignup method, add logging
+    @PostMapping("/signup/admin")
+    public String processAdminSignup(@ModelAttribute AdminSignupDTO adminDto, Model model) {
+        System.out.println("Received admin signup request: " + adminDto);
+        boolean success = signupService.registerAdmin(adminDto);
+        model.addAttribute("message", success ? "Admin signup successful!" : "Signup failed. Try again.");
+        return "admin_signup";
+    }
+    
+    // Add a REST endpoint for handling JSON requests from React
+    @PostMapping(value = "/signup/admin", consumes = "application/json", produces = "application/json")
+    @ResponseBody
+    public Map<String, Object> processAdminSignupJson(@RequestBody AdminSignupDTO adminDto) {
+        System.out.println("Received admin signup JSON request: " + adminDto);
+        boolean success = signupService.registerAdmin(adminDto);
+        Map<String, Object> response = new HashMap<>();
+        response.put("success", success);
+        response.put("message", success ? "Admin signup successful!" : "Signup failed. Try again.");
+        return response;
+    }
+
+    // Add this for student JSON signup
+    
+    @GetMapping("/signup/teacher")
+    public String showTeacherSignupForm(Model model) {
+        model.addAttribute("teacherDto", new TeacherSignupDTO());
+        return "teacher_signup";
+    }
+
+    // Add traditional form-based endpoint for teacher signup
+    @PostMapping("/signup/teacher")
+    public String processTeacherSignup(@ModelAttribute TeacherSignupDTO teacherDto, Model model) {
+        System.out.println("Received teacher signup request: " + teacherDto);
+        boolean success = signupService.registerTeacher(teacherDto);
+        model.addAttribute("message", success ? "Teacher signup successful!" : "Signup failed. Try again.");
+        return "teacher_signup";
+    }
+
+    // Update your teacher and student endpoints to handle JSON requests
+    @PostMapping(value = "/signup/teacher", consumes = "application/json", produces = "application/json")
+    @ResponseBody
+    public Map<String, Object> processTeacherSignupJson(@RequestBody TeacherSignupDTO teacherDto) {
+        System.out.println("Received teacher signup JSON request: " + teacherDto);
+        boolean success = signupService.registerTeacher(teacherDto);
+        Map<String, Object> response = new HashMap<>();
+        response.put("success", success);
+        response.put("message", success ? "Teacher signup successful!" : "Signup failed. Try again.");
+        return response;
+    }
+
+    @GetMapping("/signup/student")
+    public String showStudentSignupForm(Model model) {
+        model.addAttribute("studentDto", new StudentSignupDTO());
+        return "student_signup";
+    }
+
+    // Add traditional form-based endpoint for student signup
+    @PostMapping("/signup/student")
+    public String processStudentSignup(@ModelAttribute StudentSignupDTO studentDto, Model model) {
+        System.out.println("Received student signup request: " + studentDto);
+        boolean success = signupService.registerStudent(studentDto);
+        model.addAttribute("message", success ? "Student signup successful!" : "Signup failed. Try again.");
+        return "student_signup";
+    }
+    @PostMapping(value = "/signup/student", consumes = "application/json", produces = "application/json")
+    @ResponseBody
+    public Map<String, Object> processStudentSignupJson(@RequestBody StudentSignupDTO studentDto) {
+        System.out.println("Received student signup JSON request: " + studentDto);
+        boolean success = signupService.registerStudent(studentDto);
+        Map<String, Object> response = new HashMap<>();
+        response.put("success", success);
+        response.put("message", success ? "Student signup successful!" : "Signup failed. Try again.");
+        return response;
+    }
+
+    @GetMapping("/signup/parent")
+    public String showParentSignupForm(Model model) {
+        model.addAttribute("parentDto", new ParentSignupDTO());
+        return "parent_signup";
+    }
+
+    @PostMapping("/signup/parent")
+    public String processParentSignup(@ModelAttribute ParentSignupDTO parentDto, Model model) {
+        System.out.println("Received parent signup request: " + parentDto);
+        boolean success = signupService.registerParent(parentDto);
+        model.addAttribute("message", success ? "Parent signup successful!" : "Signup failed. Try again.");
+        return "parent_signup";
+    }
+
+    @PostMapping(value = "/signup/parent", consumes = "application/json", produces = "application/json")
+    @ResponseBody
+    public Map<String, Object> processParentSignupJson(@RequestBody ParentSignupDTO parentDto) {
+        System.out.println("Received parent signup JSON request: " + parentDto);
+        boolean success = signupService.registerParent(parentDto);
+        Map<String, Object> response = new HashMap<>();
+        response.put("success", success);
+        response.put("message", success ? "Parent signup successful!" : "Signup failed. Try again.");
+        return response;
+    }
+}
