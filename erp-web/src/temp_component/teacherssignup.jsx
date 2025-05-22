@@ -8,6 +8,9 @@ const TeachersSignup = () => {
     const [form, setForm] = useState({
         teacherId: '',
         name: '',
+        subject: '',    // Add this
+        class: '',      // Add this
+        section: '',    // Add this
         email: '',
         phone: '',
         password: ''
@@ -21,8 +24,7 @@ const TeachersSignup = () => {
     };
 
     const handleRegisterClick = async () => {
-        // Form validation
-        if (!form.teacherId || !form.name || !form.email || !form.phone || !form.password) {
+        if (!form.teacherId || !form.name || !form.subject || !form.class || !form.section || !form.email || !form.phone || !form.password) {
             setMessage('Please fill in all fields');
             return;
         }
@@ -127,6 +129,33 @@ const TeachersSignup = () => {
                         onChange={handleChange}
                         className="h-16 w-[693px] pl-4 font-serif bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]"
                         placeholder="Name:"
+                        required
+                    />
+                    <input
+                        type="text"
+                        name="subject"
+                        value={form.subject}
+                        onChange={handleChange}
+                        className="h-16 w-[693px] pl-4 font-serif bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]"
+                        placeholder="Subject:"
+                        required
+                    />
+                    <input
+                        type="text"
+                        name="class"
+                        value={form.class}
+                        onChange={handleChange}
+                        className="h-16 w-[693px] pl-4 font-serif bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]"
+                        placeholder="Class:"
+                        required
+                    />
+                    <input
+                        type="text"
+                        name="section"
+                        value={form.section}
+                        onChange={handleChange}
+                        className="h-16 w-[693px] pl-4 font-serif bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]"
+                        placeholder="Section:"
                         required
                     />
                     <input

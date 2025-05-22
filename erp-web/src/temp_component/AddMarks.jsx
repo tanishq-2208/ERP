@@ -2,6 +2,7 @@ import { useState } from "react";
 import '../App.css'; 
 import Profile from '../assets/profile.png';
 import addmarksbackground from '../assets/addmarksbackgroundimage.png';
+import NavBar from './Nav';
 const students = [
   { roll: 1, name: "Yuvigna", marks: 20 },
   { roll: 2, name: "Khafa veerudu", marks: 20 },
@@ -29,47 +30,7 @@ export default function EnterMarks() {
 
   return (
     <div className="font-roboto-serif">
-      {/* Header */}
-      <header className="bg-purple-custom w-full">
-        <nav className="container mx-auto px-4">
-          <div className="hidden md:flex items-center justify-between h-20">
-            <div className="flex justify-center space-x-24 lg:space-x-32 w-full">
-              <a href="#" className="text-white font-bold">
-                Home
-              </a>
-              <a href="#" className="text-white font-bold">
-                Contact
-              </a>
-              <a href="#" className="text-white font-bold">
-                About
-              </a>
-              <a href="#" className="text-white font-bold">
-                Help
-              </a>
-            </div>
-            <div>
-              <img
-                
-                src={Profile} alt="profile" 
-                className="w-12 h-12 bg-purple-custom"
-                
-              />
-            </div>
-          </div>
-
-         
-          {menuOpen && (
-            <div className="pb-4 md:hidden">
-              {['Home', 'Contact', 'About', 'Help'].map((item) => (
-                <a key={item} href="#" className="block text-white font-bold py-2">
-                  {item}
-                </a>
-              ))}
-            </div>
-          )}
-        </nav>
-      </header>
-
+      <NavBar />
       {/* Background and Main Content */}
       <div className="relative">
         <img src={addmarksbackground} className="w-full" alt="addmarksbackgroundimage" />
