@@ -9,7 +9,7 @@ const StudentsSignup = () => {
     const [form, setForm] = useState({
         studentId: '',
         studentName: '',
-        class: '',         // Add this
+        className: '',         // Add this
         section: '',       // Add this
         dob: '',
         parentName: '',
@@ -26,7 +26,7 @@ const StudentsSignup = () => {
 
     const handleRegisterClick = async () => {
         // Validate all fields
-        if (!form.studentId || !form.studentName || !form.class || !form.section || !form.dob || !form.parentName || !form.parentPhone || !form.password) {
+        if (!form.studentId || !form.studentName || !form.className || !form.section || !form.dob || !form.parentName || !form.parentPhone || !form.password) {
             setMessage('Please fill in all fields');
             return;
         }
@@ -120,8 +120,8 @@ const StudentsSignup = () => {
                     />
                     <input
                         type="text"
-                        name="class"
-                        value={form.class}
+                        name="className"
+                        value={form.className}
                         onChange={handleChange}
                         className="h-16 w-[693px] pl-4 font-serif bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]"
                         placeholder="Class :"

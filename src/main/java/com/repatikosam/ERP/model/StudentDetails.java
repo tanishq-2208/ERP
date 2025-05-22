@@ -34,5 +34,10 @@ public class StudentDetails {
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private UserEntity user;
 
+    @Column(name = "class_name")
+    private String className;
+    
+    @Column(name = "section")
+    private String section;
 
 }

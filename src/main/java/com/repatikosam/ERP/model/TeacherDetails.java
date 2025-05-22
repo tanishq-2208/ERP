@@ -32,6 +32,15 @@ public class TeacherDetails {
     @Column(name = "phone")
     private String phone;
 
+    @Column(name = "subject")    // Added field
+    private String subject;
+
+    @Column(name = "class_name") // Added field (using class_name in DB)
+    private String className;
+
+    @Column(name = "section")    // Added field
+    private String section;
+
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private UserEntity user;

@@ -99,12 +99,16 @@ public class SignupService {
             System.out.println("User entity saved successfully with ID: " + savedUser.getId());
 
             // Create and save teacher details
+            // In the registerTeacher method, update where teacher details are being set
             TeacherDetails teacher = new TeacherDetails();
             teacher.setTeacherId(teacherDto.getTeacherId());
             teacher.setName(teacherDto.getName());
             teacher.setEmail(teacherDto.getEmail());
             teacher.setPhone(teacherDto.getPhone());
-            teacher.setPassword(passwordEncoder.encode(teacherDto.getPassword())); // Store the password in teacher details
+            teacher.setPassword(passwordEncoder.encode(teacherDto.getPassword()));
+            teacher.setSubject(teacherDto.getSubject());       // Added line
+            teacher.setClassName(teacherDto.getClassName());   // Added line
+            teacher.setSection(teacherDto.getSection());       // Added line
             teacher.setUser(savedUser);
             teacherRepo.save(teacher);
             System.out.println("Teacher details saved successfully");
@@ -117,6 +121,7 @@ public class SignupService {
         }
     }
 
+    // In the registerStudent method, add these lines where student details are being set
     public boolean registerStudent(StudentSignupDTO dto) {
         try {
             System.out.println("Registering student with studentId: " + dto.getStudentId());
@@ -143,7 +148,9 @@ public class SignupService {
             student.setDob(dto.getDob());
             student.setParentName(dto.getParentName());
             student.setParentPhone(dto.getParentPhone());
-            student.setPassword(passwordEncoder.encode(dto.getPassword())); // Store the password in student details if field exists
+            student.setPassword(passwordEncoder.encode(dto.getPassword()));
+            student.setClassName(dto.getClassName());    // Added line
+            student.setSection(dto.getSection());        // Added line
             student.setUser(savedUser);
             studentRepo.save(student);
             System.out.println("Student details saved successfully");

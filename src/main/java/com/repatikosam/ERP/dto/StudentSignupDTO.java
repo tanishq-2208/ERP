@@ -12,5 +12,6 @@ public class StudentSignupDTO {
     private String parentName;
     private String parentPhone;
     private String password;
-
+    private String className;    // Added field
+    private String section;      // Added field
 }
