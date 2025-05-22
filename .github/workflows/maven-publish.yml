@@ -2,7 +2,7 @@ name: Maven Package & Docker Push
 
 on:
   push:
-    branches: ['**']
+    branches: [master]
   release:
     types: [created]
   workflow_dispatch:
