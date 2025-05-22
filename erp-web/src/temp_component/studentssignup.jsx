@@ -5,14 +5,18 @@ import { useNavigate } from 'react-router-dom';
 
 const StudentsSignup = () => {
     const navigate = useNavigate();
+    // Update the form state
     const [form, setForm] = useState({
         studentId: '',
         studentName: '',
+        class: '',         // Add this
+        section: '',       // Add this
         dob: '',
         parentName: '',
         parentPhone: '',
         password: ''
     });
+
     const [message, setMessage] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
@@ -22,7 +26,7 @@ const StudentsSignup = () => {
 
     const handleRegisterClick = async () => {
         // Validate all fields
-        if (!form.studentId || !form.studentName || !form.dob || !form.parentName || !form.parentPhone || !form.password) {
+        if (!form.studentId || !form.studentName || !form.class || !form.section || !form.dob || !form.parentName || !form.parentPhone || !form.password) {
             setMessage('Please fill in all fields');
             return;
         }
@@ -112,6 +116,24 @@ const StudentsSignup = () => {
                         onChange={handleChange}
                         className="h-16 w-[693px] pl-4 font-serif bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]"
                         placeholder="Student Name :"
+                        required
+                    />
+                    <input
+                        type="text"
+                        name="class"
+                        value={form.class}
+                        onChange={handleChange}
+                        className="h-16 w-[693px] pl-4 font-serif bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]"
+                        placeholder="Class :"
+                        required
+                    />
+                    <input
+                        type="text"
+                        name="section"
+                        value={form.section}
+                        onChange={handleChange}
+                        className="h-16 w-[693px] pl-4 font-serif bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]"
+                        placeholder="Section :"
                         required
                     />
                     <input
