@@ -14,7 +14,7 @@ const students = [
   { roll: 9, name: "Elka", marks: 30 },
   { roll: 10, name: "Gudimetla", marks: 30 },
 ];
-
+//hi
 export default function EnterMarks() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [marks, setMarks] = useState(
