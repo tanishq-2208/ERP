@@ -1,19 +1,18 @@
 package com.repatikosam.ERP.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.repatikosam.ERP.Repository.MarksRepository;
+import com.repatikosam.ERP.Repository.StudentDetailsRepository;
+import com.repatikosam.ERP.Repository.UserRepository;
 import com.repatikosam.ERP.dto.AddMarksDTO;
 import com.repatikosam.ERP.dto.StudentSignupDTO;
 import com.repatikosam.ERP.model.Marks;
 import com.repatikosam.ERP.model.StudentDetails;
-import com.repatikosam.ERP.model.UserEntity;
-import com.repatikosam.ERP.Repository.MarksRepository;
-import com.repatikosam.ERP.Repository.StudentDetailsRepository;
-import com.repatikosam.ERP.Repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class MarksService {
@@ -65,13 +64,6 @@ public class MarksService {
             }
 
             // Verify teacher exists
-            Optional<UserEntity> teacherOpt = userRepository.findByUserId(marksDTO.getTeacherId());
-            if (teacherOpt.isEmpty()) {
-                System.out.println("Teacher not found with ID: " + marksDTO.getTeacherId());
-                throw new RuntimeException("Teacher not found");
-            }
-            UserEntity teacher = teacherOpt.get();
-
             // Create and save marks
             Marks marks = new Marks();
             marks.setClassName(marksDTO.getClassName());
@@ -80,8 +72,6 @@ public class MarksService {
             marks.setSubject(marksDTO.getSubject());
             marks.setStudent(student);
             marks.setStudentName(student.getStudentName());
-            marks.setTeacher(teacher);
-            marks.setTeacherName(marksDTO.getTeacherName());
             marks.setMarks(marksDTO.getMarks());
 
             Marks savedMarks = marksRepository.save(marks);

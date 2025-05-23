@@ -10,7 +10,9 @@ import lombok.Setter;
 @Setter
 public class Marks {
     @Id
-    
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
     
     @Column(name = "class_name")
     private String className;
@@ -33,11 +35,4 @@ public class Marks {
     
     @Column(name = "marks")
     private Integer marks;
-    
-    @ManyToOne
-    @JoinColumn(name = "teacher_id", referencedColumnName = "user_id")
-    private UserEntity teacher;
-    
-    @Column(name = "name")
-    private String teacherName;
 }

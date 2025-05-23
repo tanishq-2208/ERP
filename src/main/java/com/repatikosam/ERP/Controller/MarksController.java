@@ -1,15 +1,22 @@
 package com.repatikosam.ERP.Controller;
 
-import com.repatikosam.ERP.Service.MarksService;
-import com.repatikosam.ERP.dto.StudentSignupDTO;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.HashMap;
 import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.repatikosam.ERP.Service.MarksService;
+import com.repatikosam.ERP.dto.AddMarksDTO;
+import com.repatikosam.ERP.dto.StudentSignupDTO;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @Controller
@@ -47,11 +54,10 @@ public class MarksController {
 
     @PostMapping(value = "/api/marks", consumes = "application/json", produces = "application/json")
     @ResponseBody
-    public Map<String, Object> saveMarks(@RequestBody Map<String, Object> marksData) {
-        System.out.println("Received marks data: " + marksData);
-        
-        // TODO: Add marks saving logic here
-        
+    public Map<String, Object> saveMarks(@RequestBody List<AddMarksDTO> marksData) {
+        for (AddMarksDTO dto : marksData) {
+            MarksService.addMarks(dto);
+        }
         Map<String, Object> response = new HashMap<>();
         response.put("success", true);
         response.put("message", "Marks saved successfully");

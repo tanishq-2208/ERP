@@ -14,6 +14,4 @@ public class AddMarksDTO {
     private String studentId;
     private String studentName;
     private Integer marks;
-    private String teacherId;
-    private String teacherName;
 }

@@ -57,16 +57,17 @@ export default function EnterMarks() {
 
   const handleSubmit = () => {
     const marksData = students.map((student, index) => ({
+      className: classInfo.className,
+      section: classInfo.section,
+      terminal: classInfo.terminal,
+      subject: classInfo.subject,
       studentId: student.studentId,
       studentName: student.studentName,
-      marks: marks[index]
+      marks: marks[index],
     }));
-
     fetch('http://localhost:8080/api/marks', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(marksData)
     })
     .then(response => response.json())
