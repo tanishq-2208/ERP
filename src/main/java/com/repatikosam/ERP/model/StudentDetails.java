@@ -10,10 +10,6 @@ import lombok.Setter;
 @Table(name = "student_details")
 public class StudentDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
-
     @Column(name = "student_id")
     private String studentId;
     @Column(name = "password")

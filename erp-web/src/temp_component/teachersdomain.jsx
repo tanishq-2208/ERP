@@ -12,7 +12,11 @@ const Teachersdomain = () => {
         if (pageType === 'attendance') {
             navigate('/markattendance');
         } else if (pageType === 'marks') {
-            navigate('/addmarks');
+            const selectedClass = document.getElementById('Class').value;
+            const selectedSection = document.getElementById('Section').value;
+            const selectedSubject = document.getElementById('Subject').value;
+            const selectedTerminal = document.getElementById('Terminal').value;
+            navigate(`/addmarks?class=${selectedClass}&section=${selectedSection}&subject=${selectedSubject}&terminal=${selectedTerminal}`);
         }
     };
 
@@ -34,19 +38,16 @@ const Teachersdomain = () => {
                 <form class="max-w-sm mx-auto">
                     <label class="block mb-2 text-1xl font-serif text-gray-900 dark:text-black flex pl-[20px] pt-[1px]">Class</label>
                     <select id="Class" class="text-sm w-[240px] p-2.5 dark:bg-purple-400 placeholder-purple-100 text-black ml-[20px]">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
+                        <option>1st</option>
+                        <option>2nd</option>
+                        <option>3rd</option>
+                        <option>4th</option>
                     </select>
                 </form>
                 <form class="max-w-sm mx-auto">
                     <label class="block mb-2 text-1xl font-serif text-gray-900 dark:text-black flex pl-[20px] pt-[50px]">Section</label>
                     <select id="Section" class="text-sm w-[240px] p-2.5 dark:bg-purple-400 placeholder-purple-100 text-black ml-[20px]">
                         <option>A</option>
-                        <option>B</option>
-                        <option>C</option>
-                        <option>D</option>
                     </select>
                 </form>
                 <form class="max-w-sm mx-auto">
@@ -55,11 +56,6 @@ const Teachersdomain = () => {
                         <option>Telugu</option>
                         <option>Hindi</option>
                         <option>English</option>
-                        <option>Maths</option>
-                        <option>Physics</option>
-                        <option>Biology</option>
-                        <option>Chemistry</option>
-                        <option>Social</option>
                     </select>
                 </form>
                 {pageType === 'attendance' && (
